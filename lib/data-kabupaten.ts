@@ -733,6 +733,6 @@ export const PULAU_LIST = [
 ];
 
 export function getKabupatenBySlug(slug: string): KabupatenNTB | undefined {
-  return KABUPATEN_NTB.find((k) => k.slug === slug || k.id === slug);
+  return KABUPATEN_NTB.find((k) => k.slug === slug || k.id === slug); 
 }
 

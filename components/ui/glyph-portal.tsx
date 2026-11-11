@@ -120,7 +120,7 @@ export default function GlyphPortal({
     const buttons = Array.from(choices.querySelectorAll<HTMLButtonElement>("button"));
     const picker = section.querySelector<HTMLSelectElement>("[data-gp-select]")!;
     const root = scrollParent(section);
-    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce), (any-pointer: coarse)");
     const canvas = document.createElement("canvas");
     const context = canvas.getContext("2d", { willReadFrequently: true });
     let disposed = false, raf = 0, dirty = true, active = true, ready = false;
