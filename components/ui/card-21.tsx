@@ -42,7 +42,7 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
         <a
           href={href}
           onClick={onCardClick}
-          className="destination-card-link relative block w-full h-full min-h-[420px] rounded-2xl overflow-hidden shadow-lg
+          className="relative block w-full h-full min-h-[420px] rounded-2xl overflow-hidden shadow-lg 
                      transition-all duration-500 ease-in-out cursor-pointer
                      group-hover:scale-[1.03] group-hover:shadow-[0_0_60px_-15px_hsl(var(--theme-color)/0.6)]
                      focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
@@ -54,7 +54,7 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
           {/* Background Image with Parallax Zoom */}
           <div
             className="absolute inset-0 bg-cover bg-center 
-                       destination-card-image transition-transform duration-700 ease-in-out group-hover:scale-110"
+                       transition-transform duration-700 ease-in-out group-hover:scale-110"
             style={{ backgroundImage: `url(${imageUrl})` }}
           />
 
@@ -76,7 +76,7 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
 
             {/* Explore Button */}
             <div
-              className="destination-card-surface mt-6 flex items-center justify-between bg-[hsl(var(--theme-color)/0.25)] backdrop-blur-md border border-[hsl(var(--theme-color)/0.35)]
+              className="mt-6 flex items-center justify-between bg-[hsl(var(--theme-color)/0.25)] backdrop-blur-md border border-[hsl(var(--theme-color)/0.35)] 
                              rounded-lg px-4 py-2.5 
                              transition-all duration-300 
                              group-hover:bg-[hsl(var(--theme-color)/0.45)] group-hover:border-[hsl(var(--theme-color)/0.6)]"

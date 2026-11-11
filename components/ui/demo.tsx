@@ -1,16 +1,28 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import GlyphPortal from "@/components/ui/glyph-portal";
 
 const settings = { word: "Bumi Gora", scrollLength: 2.6, interactive: true, annotations: false };
-const family = 'Arial, Helvetica, sans-serif';
+const family = '"Glyph Portal Jakarta", Arial, sans-serif';
+let fontLoad: Promise<void> | undefined;
 
 export default function Demo(props: Partial<typeof settings>) {
   const s = { ...settings, ...props };
+  const [face, setFace] = useState<string | null>(null);
+  useEffect(() => {
+    let settled = false;
+    const finish = (value: string) => { if (!settled) { settled = true; setFace(value); } };
+    fontLoad ??= new FontFace("Glyph Portal Jakarta", 'url("https://cdn.21st.dev/assets/mirror/15/153fc85b70298beeb1d61a5f723331649e7f23bb77302a66e61cb3e2fbdb5e79.woff2")', { weight: "400 700" })
+      .load().then((font) => { document.fonts.add(font); });
+    const timeout = window.setTimeout(() => finish("Arial, sans-serif"), 1600);
+    void fontLoad.then(() => finish(family), () => finish("Arial, sans-serif"));
+    return () => { settled = true; clearTimeout(timeout); };
+  }, []);
 
   return (
     <div data-demo-scroll data-slipstream-demo tabIndex={0} role="region" aria-label="Nusa Tenggara Barat. Gulir untuk masuk ke dalam."
-      style={{ width: "100%", background: "#fff", containerType: "inline-size", fontFamily: family }}>
+      style={{ width: "100%", background: "#fff", containerType: "inline-size", fontFamily: face ?? "Arial, sans-serif" }}>
       <style>{`
         [data-slipstream-demo] [data-gp-caption]{inset:calc(var(--gp-word-bottom,50%) + 82px) 24px auto;justify-content:center;}
         [data-slipstream-demo] [data-gp-hint]{display:none;}
@@ -27,7 +39,7 @@ export default function Demo(props: Partial<typeof settings>) {
         [data-sublime-scroll]{position:absolute;inset:auto 24px 6%;text-align:center;color:#7c817b;font-size:11px;letter-spacing:.02em;}
         @media(any-pointer:coarse){[data-sublime-scroll]{bottom:12%;}}
         @container(max-width:450px){[data-sublime-category]{max-width:14ch;text-align:right;}[data-sublime-eyebrow]{font-size:11px;}[data-sublime-support]{font-size:13px;}[data-slipstream-demo] [data-gp-caption]{top:calc(var(--gp-word-bottom,50%) + 76px);}}
-        @media(max-height:479px){[data-sublime-header]{top:16px;}[data-sublime-support]{top:calc(var(--gp-word-bottom,50%) + 14px);}[data-slipstream-demo] [data-gp-caption]{top:calc(var(--gp-word-bottom,50%) + 56px);}[data-sublime-scroll]{display:none;}}
+        @container(max-height:479px){[data-sublime-header]{top:16px;}[data-sublime-support]{top:calc(var(--gp-word-bottom,50%) + 14px);}[data-slipstream-demo] [data-gp-caption]{top:calc(var(--gp-word-bottom,50%) + 56px);}[data-sublime-scroll]{display:none;}}
         [data-slipstream-demo] [data-gp-content]{padding:5.5rem clamp(1.25rem,5cqw,5rem) 6.5rem;font-family:inherit;}
         [data-slipstream-demo] section,[data-slipstream-demo] [data-gp-caption]{font-family:inherit;}
         [data-slipstream-copy]{display:flex;width:min(100%,80rem);margin:auto;flex-direction:column;align-items:flex-start;gap:clamp(2rem,5svh,3.5rem);}
@@ -39,15 +51,16 @@ export default function Demo(props: Partial<typeof settings>) {
         [data-slipstream-no]{display:inline-block;margin-right:.7rem;color:rgba(251,251,250,.85);font:600 .75rem ui-monospace,monospace;letter-spacing:.08em;transform:translateY(-.1em);}
         @container(min-width:768px){[data-slipstream-features]{grid-template-columns:repeat(3,minmax(0,1fr));gap:3.5rem;}}
       `}</style>
-      <GlyphPortal
-        word={s.word}
-        fontFamily={family}
-        fontWeight={700}
-        style={{ fontFamily: family }}
-        scrollLength={s.scrollLength}
-        interactive={s.interactive}
-        annotations={s.annotations}
-        front={
+      {face ? (
+        <GlyphPortal
+          word={s.word}
+          fontFamily={face}
+          fontWeight={700}
+          style={{ fontFamily: face }}
+          scrollLength={s.scrollLength}
+          interactive={s.interactive}
+          annotations={s.annotations}
+          front={
             <>
               <div data-sublime-header>
                 <span data-sublime-logo>NTB SATU.</span>
@@ -57,8 +70,8 @@ export default function Demo(props: Partial<typeof settings>) {
               <p data-sublime-support>Dua pulau megah, kekayaan kaldera dunia, serta keharmonisan tiga suku bersaudara: Sasak, Samawa, dan Mbojo.</p>
               <span data-sublime-scroll> Scroll untuk melangkah ke dalam</span>
             </>
-        }
-      >
+          }
+        >
           <div data-slipstream-copy>
             <h2>Melampaui Batas Lombok: Menjelajahi Jiwa Bumi Sasambo.</h2>
             <div data-slipstream-features>
@@ -76,7 +89,12 @@ export default function Demo(props: Partial<typeof settings>) {
               </div>
             </div>
           </div>
-      </GlyphPortal>
+        </GlyphPortal>
+      ) : (
+        <div role="status" style={{ height: "100vh", display: "grid", placeItems: "center", color: "#555", fontSize: 13 }}>
+          Memuat tipografi Nusa Tenggara Barat…
+        </div>
+      )}
     </div>
   );
 }

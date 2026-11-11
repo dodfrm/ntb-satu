@@ -472,7 +472,7 @@ export default function RidgelineDitherFooter({
   React.useEffect(() => {
     const root = rootRef.current
     if (!root) return
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce), (any-pointer: coarse)").matches
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
     const io = new IntersectionObserver(
       (entries) => {
         if (!entries.some((e) => e.isIntersecting)) return
@@ -494,7 +494,7 @@ export default function RidgelineDitherFooter({
     const ctx = canvas.getContext("2d")
     if (!ctx) return
 
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce), (any-pointer: coarse)").matches
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
     const pal = new Uint32Array(tones.map((t) => rdfPack(rdfHex(t) || [128, 128, 128])))
     const nTones = pal.length
 

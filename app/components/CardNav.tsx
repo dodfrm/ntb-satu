@@ -510,7 +510,6 @@ const CardNav = ({
     <div
       ref={rootRef}
       className={[ROOT, className].filter(Boolean).join(' ')}
-      data-cn-root=""
       data-open={open ? '' : undefined}
       data-shown={shown || open ? '' : undefined}
       data-narrow={narrow ? '' : undefined}

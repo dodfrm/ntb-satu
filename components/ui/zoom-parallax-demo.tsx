@@ -2,9 +2,27 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
+import Lenis from '@studio-freight/lenis';
 import { ZoomParallax } from '@/components/ui/zoom-parallax';
 
 export default function ZoomParallaxDemo() {
+	React.useEffect(() => {
+		const lenis = new Lenis();
+
+		let rafId: number;
+		function raf(time: number) {
+			lenis.raf(time);
+			rafId = requestAnimationFrame(raf);
+		}
+
+		rafId = requestAnimationFrame(raf);
+
+		return () => {
+			cancelAnimationFrame(rafId);
+			lenis.destroy();
+		};
+	}, []);
+
 	const images = [
 		{
 			src: 'https://images.unsplash.com/photo-1578469645742-46cae010e5d4?auto=format&fit=crop&w=1200&q=80',
@@ -38,7 +56,7 @@ export default function ZoomParallaxDemo() {
 
 	return (
 		<div className="min-h-screen w-full bg-[#f8faf9] text-[#18251e] border-t border-[#e3e8e5]">
-			<div className="relative flex h-[35svh] items-center justify-center">
+			<div className="relative flex h-[35vh] items-center justify-center">
 				<div
 					aria-hidden="true"
 					className={cn(
