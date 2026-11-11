@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import CardNav, { CardNavItem } from './components/CardNav';
 import Demo from '@/components/ui/demo';
 import ZoomParallaxDemo from '@/components/ui/zoom-parallax-demo';
+import NtbMap from '@/components/ui/ntb-map';
 import RidgelineDitherFooter from '@/components/ui/ridgeline-dither-footer';
 import { DestinationCard } from '@/components/ui/card-21';
 import {
@@ -52,6 +53,7 @@ const navItems: CardNavItem[] = [
     links: [
       { label: 'Portal Nusa Tenggara Barat', href: '#portal' },
       { label: 'Profil Geografis NTB', href: '#tentang' },
+      { label: 'Peta NTB', href: '#peta' },
     ],
   },
   {
@@ -408,6 +410,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <NtbMap />
 
         {/* Section 3: Galeri Parallax Interaktif (Lombok & Sumbawa) */}
         <section id="galeri" aria-label="Galeri Lanskap Alam Lombok dan Sumbawa" className="relative">
