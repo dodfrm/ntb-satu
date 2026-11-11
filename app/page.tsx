@@ -15,7 +15,6 @@ import {
   Compass,
   Sun,
   MapPin,
-  ShieldCheck,
   Landmark,
   Scroll,
   Flame,
@@ -70,6 +69,7 @@ const navItems: CardNavItem[] = [
     links: [
       { label: 'Tradisi & Upacara Adat', href: '#budaya' },
       { label: 'Arsitektur & Kriya Tenun', href: '#budaya' },
+      { label: 'Kuis NTB', href: '#kuis' },
     ],
   },
 ];
@@ -82,7 +82,7 @@ const DESTINATIONS: Destination[] = [
     elevation: '3.726 mdpl (Lombok)',
     location: 'Lombok Utara, Lombok Timur, & Lombok Tengah',
     description:
-      'Gunung berapi megah dengan kaldera raksasa Danau Segara Anak di Pulau Lombok. Rumah bagi keragaman hayati peralihan Wallacea serta jalur pendakian legendaris Sembalun, Senaru, dan Torean.',
+      'Gunung Rinjani dan kawasan sekitarnya termasuk dalam Rinjani-Lombok UNESCO Global Geopark.',
     icon: Mountain,
     badge: 'UNESCO Global Geopark',
     image:
@@ -104,12 +104,12 @@ const DESTINATIONS: Destination[] = [
     id: 'tambora',
     title: 'Taman Nasional Gunung Tambora',
     category: 'Kaldera Raksasa & Jejak Sejarah Dunia',
-    elevation: '2.851 mdpl (Sumbawa)',
+    elevation: '2.850 mdpl (Sumbawa)',
     location: 'Kabupaten Dompu & Kabupaten Bima, Pulau Sumbawa',
     description:
-      'Situs geologi bersejarah dunia dengan kaldera berdiameter 7 kilometer dan kedalaman 1.200 meter akibat letusan dahsyat tahun 1815. Dikelilingi padang savana Doro Ncanga tempat kawanan kerbau dan kuda Sumbawa hidup bebas.',
+      'Gunung Tambora berada dalam bentang kawasan Saleh-Moyo-Tambora (SAMOTA), yang ditetapkan UNESCO sebagai cagar biosfer. Letusan besarnya terjadi pada 1815.',
     icon: Mountain,
-    badge: 'UNESCO Global Geopark',
+    badge: 'Cagar Biosfer SAMOTA',
     image:
       'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80',
     featured: true,
@@ -123,16 +123,16 @@ const DESTINATIONS: Destination[] = [
     accessInfo: 'Melalui Pos Registrasi Pancasila atau Doro Ncanga, Dompu, Sumbawa.',
     themeColor: '160 55% 20%',
     flag: '🐎',
-    stats: '2.851 mdpl • Geopark Sumbawa',
+    stats: 'Kawasan SAMOTA • Letusan 1815',
   },
   {
     id: 'teluk-saleh',
-    title: 'Teluk Saleh & Suaka Hiu Paus',
-    category: 'Akuarium Raksasa & Konservasi Bahari',
-    elevation: 'Perairan Pedalaman Sumbawa',
-    location: 'Kabupaten Sumbawa & Kabupaten Dompu',
+    title: 'Teluk Saleh & Hiu Paus',
+    category: 'Habitat hiu paus & konservasi bahari',
+    elevation: 'Perairan Teluk Saleh',
+    location: 'Kabupaten Sumbawa, Pulau Sumbawa',
     description:
-      'Teluk semi tertutup terbesar di NTB yang dijuluki Akuarium Raksasa Sumbawa. Menjadi rumah bagi populasi Hiu Paus (Rhincodon typus) yang hidup berdampingan secara harmonis dengan nelayan bagan tradisional.',
+      'Teluk Saleh merupakan salah satu lokasi agregasi hiu paus yang menjadi fokus upaya konservasi dan pengelolaan habitat.',
     icon: Waves,
     badge: 'Konservasi Bahari Sumbawa',
     image:
@@ -146,7 +146,7 @@ const DESTINATIONS: Destination[] = [
     accessInfo: 'Akses perahu nelayan dari Labuhan Jering atau Desa Tarano, Sumbawa.',
     themeColor: '175 60% 22%',
     flag: '🦈',
-    stats: 'Suaka Hiu Paus • Teluk Terbesar NTB',
+    stats: 'Habitat hiu paus • Teluk Saleh',
   },
   {
     id: 'mandalika',
@@ -254,9 +254,24 @@ const CULTURAL_PILLARS = [
   },
 ];
 
+const QUIZ_QUESTIONS = [
+  { question: 'Pulau mana yang lebih luas menurut angka BPN NTB 2017 dalam bahan?', choices: ['Lombok', 'Sumbawa', 'Sama luas'], answer: 1, explanation: 'Bahan mencatat luas Lombok sekitar 4.739 km² dan Sumbawa sekitar 15.426 km².' },
+  { question: 'Kelompok budaya besar di Pulau Sumbawa menurut bahan?', choices: ['Sasak dan Bali', 'Samawa dan Mbojo', 'Bugis dan Makassar'], answer: 1, explanation: 'Bahan merangkum kelompok budaya di Sumbawa sebagai Samawa dan Mbojo.' },
+  { question: 'Bau Nyale dikaitkan dengan legenda siapa?', choices: ['Putri Mandalika', 'Dewi Anjani', 'Roro Jonggrang'], answer: 0, explanation: 'Dalam bahan, Bau Nyale dikaitkan dengan legenda Putri Mandalika di Lombok Tengah.' },
+  { question: 'Perang Topat di Lingsar melibatkan masyarakat mana?', choices: ['Sasak dan Bali', 'Samawa dan Mbojo', 'Sasak dan Samawa'], answer: 0, explanation: 'Bahan menyebut keterlibatan masyarakat Sasak dan Bali di Lingsar, Lombok Barat.' },
+  { question: 'Ada berapa kabupaten/kota di NTB?', choices: ['Delapan', 'Sepuluh', 'Dua belas'], answer: 1, explanation: 'Ada lima kabupaten/kota di Lombok dan lima di Sumbawa.' },
+  { question: 'Apa ibu kota Provinsi Nusa Tenggara Barat?', choices: ['Kota Bima', 'Kota Mataram', 'Sumbawa Besar'], answer: 1, explanation: 'Kota Mataram adalah ibu kota Provinsi NTB.' },
+  { question: 'Pada tahun berapa letusan besar Gunung Tambora terjadi?', choices: ['1815', '1915', '2015'], answer: 0, explanation: 'Letusan besar Tambora terjadi pada 1815.' },
+  { question: 'Berapa proyeksi jumlah penduduk NTB pada 2025 menurut BPS NTB?', choices: ['5.731.107 jiwa', '4.057.386 jiwa', '1.673.721 jiwa'], answer: 0, explanation: 'BPS Provinsi NTB mencantumkan proyeksi penduduk 2025 sebanyak 5.731.107 jiwa.' },
+];
+
 export default function Home() {
   const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
   const [showNav, setShowNav] = useState(false);
+  const [quizIndex, setQuizIndex] = useState(0);
+  const [quizAnswer, setQuizAnswer] = useState<number | null>(null);
+  const [quizScore, setQuizScore] = useState(0);
+  const [quizComplete, setQuizComplete] = useState(false);
 
   // Show navbar starting from Section 2 (#tentang) onwards
   useEffect(() => {
@@ -296,6 +311,25 @@ export default function Home() {
     };
   }, [selectedDestination, handleKeyDown]);
 
+  const advanceQuiz = () => {
+    if (quizAnswer === null) return;
+    const isCorrect = quizAnswer === QUIZ_QUESTIONS[quizIndex].answer;
+    if (isCorrect) setQuizScore((score) => score + 1);
+    if (quizIndex === QUIZ_QUESTIONS.length - 1) {
+      setQuizComplete(true);
+      return;
+    }
+    setQuizIndex((index) => index + 1);
+    setQuizAnswer(null);
+  };
+
+  const restartQuiz = () => {
+    setQuizIndex(0);
+    setQuizAnswer(null);
+    setQuizScore(0);
+    setQuizComplete(false);
+  };
+
   return (
     <div className="min-h-screen bg-white text-[#18251e] flex flex-col selection:bg-[#142b22] selection:text-white font-sans">
       {/* 1. Header Landmark with Navigation */}
@@ -317,12 +351,12 @@ export default function Home() {
                 <Mountain className="w-4 h-4" />
               </div>
               <div className="flex flex-col text-left">
-                <span className="text-sm font-bold tracking-wider text-[#18251e]">NTB SATU</span>
+                <span className="text-sm font-bold tracking-wider text-[#18251e]">1 BUMI GORA</span>
                 <span className="text-[10px] text-[#204434] font-medium">Lombok &amp; Sumbawa</span>
               </div>
             </div>
           }
-          logoAlt="NTB SATU - Gerbang Informasi Wisata Nusa Tenggara Barat"
+          logoAlt="1 BUMI GORA - Kenali NTB seutuhnya, dari Lombok sampai Sumbawa"
           logoHref="#portal"
           items={navItems}
           // cta={{ label: 'Eksplorasi Destinasi', href: '#destinasi' }}
@@ -348,14 +382,14 @@ export default function Home() {
               <span>Profil Geografis &amp; Kebudayaan Bumi Sasambo</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[#18251e]">
-              Dua Pulau Megah, Harmoni Sasambo di Nusa Tenggara Barat
+              1 BUMI GORA
             </h2>
             <p className="max-w-3xl mx-auto text-[#5a625d] text-base md:text-lg leading-relaxed">
-              Nusa Tenggara Barat bukan hanya tentang keelokan Pulau Lombok. Terbentang seluas <strong className="text-[#142b22] font-semibold">20.153 kilometer persegi</strong>, provinsi ini memadukan kemegahan Pulau Lombok di barat dan keagungan Pulau Sumbawa di timur. Wilayah ini menjadi rumah bagi dua UNESCO Global Geoparks dunia (Rinjani &amp; Tambora), suaka bahari terumbu karang dan hiu paus, serta kehangatan persaudaraan tiga suku serumpun: Sasak, Samawa, dan Mbojo.
+              Kenali NTB seutuhnya, dari Lombok sampai Sumbawa. Menurut Kanwil BPN NTB (2017), luas wilayahnya sekitar <strong className="font-semibold text-[#142b22]">20.165 km²</strong>, terdiri dari Lombok 4.739 km² dan Sumbawa 15.426 km². NTB mencakup sepuluh kabupaten/kota dengan keragaman budaya dan potensi yang luas. Karya inovasi Pemilihan Putra Putri Daerah Politeknik Statistika STIS untuk Dies Natalis ke-68 ini mengangkat tema “Karsa Daerah, Cipta Perubahan”.
             </p>
           </div>
 
-          {/* Factual Information Grid: 4 Real Geographic & Institutional Data Cards */}
+          {/* Ringkasan angka sesuai bahan PAPISTIS dan atribusi yang dicantumkan. */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-14">
             <div className="p-6 rounded-xl bg-[#fafbf9] border border-[#e3e8e5] hover:border-[#142b22]/30 hover:shadow-sm transition-all">
               <div className="flex items-center gap-3 mb-2">
@@ -364,22 +398,20 @@ export default function Home() {
                   Bentang Kepulauan
                 </span>
               </div>
-              <div className="text-2xl md:text-3xl font-extrabold text-[#18251e]">2 Pulau Utama</div>
+              <div className="text-2xl md:text-3xl font-extrabold text-[#18251e]">20.165 km²</div>
               <p className="text-xs text-[#626964] mt-2 leading-relaxed">
-                Pulau Lombok (4.725 km²) dan Pulau Sumbawa (15.448 km²), terhubung oleh perairan Selat Alas.
+                Luas total NTB: Lombok 4.739 km² dan Sumbawa 15.426 km². Sumber: Kanwil BPN NTB, 2017.
               </p>
             </div>
 
             <div className="p-6 rounded-xl bg-[#fafbf9] border border-[#e3e8e5] hover:border-[#142b22]/30 hover:shadow-sm transition-all">
               <div className="flex items-center gap-3 mb-2">
-                <Mountain className="w-5 h-5 text-[#142b22] shrink-0" />
-                <span className="text-xs font-semibold text-[#204434] uppercase tracking-wide">
-                  Warisan Geologi Dunia
-                </span>
+                <Users className="w-5 h-5 text-[#142b22] shrink-0" />
+                <span className="text-xs font-semibold text-[#204434] uppercase tracking-wide">Penduduk 2025</span>
               </div>
-              <div className="text-2xl md:text-3xl font-extrabold text-[#18251e]">2 UNESCO Geopark</div>
+              <div className="text-2xl md:text-3xl font-extrabold text-[#18251e]">5.731.107 jiwa</div>
               <p className="text-xs text-[#626964] mt-2 leading-relaxed">
-                Taman Nasional Rinjani 3.726 mdpl di Lombok dan Kaldera Raksasa Tambora 1815 di Sumbawa.
+                Proyeksi penduduk hasil SP2020. Sumber: BPS Provinsi NTB.
               </p>
             </div>
 
@@ -387,28 +419,29 @@ export default function Home() {
               <div className="flex items-center gap-3 mb-2">
                 <Users className="w-5 h-5 text-[#142b22] shrink-0" />
                 <span className="text-xs font-semibold text-[#204434] uppercase tracking-wide">
-                  Entitas Budaya Sasambo
+                  Kelompok Budaya
                 </span>
               </div>
-              <div className="text-xl md:text-2xl font-bold text-[#18251e]">Tiga Suku Serumpun</div>
+              <div className="text-xl md:text-2xl font-bold text-[#18251e]">Sasak, Samawa, Mbojo</div>
               <p className="text-xs text-[#626964] mt-2 leading-relaxed">
-                Persaudaraan sejati antara suku Sasak di Lombok, suku Samawa, dan suku Mbojo di Sumbawa.
+                Tiga kelompok budaya besar sebagaimana dirangkum dalam bahan.
               </p>
             </div>
 
             <div className="p-6 rounded-xl bg-[#fafbf9] border border-[#e3e8e5] hover:border-[#142b22]/30 hover:shadow-sm transition-all">
               <div className="flex items-center gap-3 mb-2">
-                <ShieldCheck className="w-5 h-5 text-[#142b22] shrink-0" />
+                <MapPin className="w-5 h-5 text-[#142b22] shrink-0" />
                 <span className="text-xs font-semibold text-[#204434] uppercase tracking-wide">
-                  Konservasi Bahari
+                  Administrasi
                 </span>
               </div>
-              <div className="text-xl md:text-2xl font-bold text-[#18251e]">Suaka Terkaya</div>
+              <div className="text-xl md:text-2xl font-bold text-[#18251e]">10 daerah</div>
               <p className="text-xs text-[#626964] mt-2 leading-relaxed">
-                Suaka Hiu Paus Teluk Saleh, Cagar Alam Laut Pulau Moyo, dan suaka terumbu karang Gili Tramena.
+                Lima kabupaten/kota di Pulau Lombok dan lima di Pulau Sumbawa.
               </p>
             </div>
           </div>
+          <p className="mt-5 text-center text-xs leading-relaxed text-[#626964]">Angka luas mengikuti bahan presentasi yang merujuk Kanwil BPN NTB (2017). Angka penduduk adalah proyeksi 2025 hasil SP2020 dari BPS.</p>
         </section>
 
         <NtbMap />
@@ -430,7 +463,7 @@ export default function Home() {
               </h2>
             </div>
             <p className="text-[#5a625d] text-sm max-w-md">
-              Koleksi destinasi kaldera legendaris dunia, suaka bahari hiu paus, perbukitan samudra, dan istana kayu bersejarah di dua pulau besar NTB.
+              Bagian pelengkap yang merangkum beberapa tempat di Lombok dan Sumbawa. Rincian destinasi dan budaya lokal masih perlu dicocokkan dengan sumber daerah.
             </p>
           </div>
 
@@ -445,7 +478,7 @@ export default function Home() {
                   stats={dest.stats || `${dest.elevation} • ${dest.badge}`}
                   href="#destinasi"
                   themeColor={dest.themeColor}
-                  ctaText="Informasi Rute & Akses"
+                  ctaText="Lihat ringkasan"
                   onCardClick={(e) => {
                     e.preventDefault();
                     setSelectedDestination(dest);
@@ -461,13 +494,13 @@ export default function Home() {
           <div className="max-w-5xl mx-auto space-y-12">
             <div className="text-center space-y-3">
               <p className="text-xs font-semibold text-[#204434] uppercase tracking-wide">
-                Identitas Tiga Suku Bersaudara
+                Konten pelengkap dari bahan awal
               </p>
               <h2 className="text-2xl md:text-4xl font-extrabold text-[#18251e]">
                 Kearifan Adat Sasak, Samawa, dan Mbojo
               </h2>
               <p className="max-w-3xl mx-auto text-[#5a625d] text-sm md:text-base leading-relaxed">
-                Masyarakat di seluruh penjuru Nusa Tenggara Barat memelihara nilai luhur dalam menjaga kelestarian alam, hutan sakral, mata air pegunungan, serta keharmonisan sosial. Tiga pilar budaya Sasambo adalah cermin ketangguhan jiwa Bumi Gora.
+                Uraian budaya ini melengkapi profil utama. Rincian tradisi dan arti motto daerah masih perlu dicocokkan dengan sumber resmi pemerintah daerah atau narasumber setempat.
               </p>
             </div>
 
@@ -501,6 +534,52 @@ export default function Home() {
                 );
               })}
             </div>
+          </div>
+        </section>
+
+        <section id="kuis" className="border-t border-[#e3e8e5] bg-white px-6 py-20">
+          <div className="mx-auto max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-wide text-[#204434]">Kenali NTB</p>
+            <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-[#18251e] md:text-4xl">Kuis 1 BUMI GORA</h2>
+            <p className="mt-3 text-sm leading-relaxed text-[#5a625d]">Delapan pertanyaan dari bahan PAPISTIS dan data BPS. Pilih satu jawaban untuk melihat penjelasannya.</p>
+
+            {quizComplete ? (
+              <div className="mt-8 rounded-xl border border-[#e3e8e5] bg-[#fafbf9] p-6" aria-live="polite">
+                <h3 className="text-xl font-bold text-[#18251e]">Skor kamu: {quizScore} dari {QUIZ_QUESTIONS.length}</h3>
+                <p className="mt-2 text-sm text-[#5a625d]">Terima kasih sudah mengenal Lombok dan Sumbawa lebih dekat.</p>
+                <button type="button" onClick={restartQuiz} className="mt-5 cursor-pointer rounded-md bg-[#142b22] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#204434] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#142b22] focus-visible:ring-offset-2">Ulangi kuis</button>
+              </div>
+            ) : (
+              <div className="mt-8 rounded-xl border border-[#e3e8e5] bg-[#fafbf9] p-5 sm:p-7">
+                <p className="text-xs font-semibold text-[#52705b]" aria-live="polite">Pertanyaan {quizIndex + 1} dari {QUIZ_QUESTIONS.length}</p>
+                <h3 className="mt-3 text-lg font-bold leading-snug text-[#18251e]">{QUIZ_QUESTIONS[quizIndex].question}</h3>
+                <div className="mt-5 grid gap-2" role="group" aria-label="Pilihan jawaban">
+                  {QUIZ_QUESTIONS[quizIndex].choices.map((choice, index) => {
+                    const correct = index === QUIZ_QUESTIONS[quizIndex].answer;
+                    const selected = quizAnswer === index;
+                    const resultStyle = quizAnswer === null ? '' : correct ? 'border-[#527b5e] bg-[#edf4ee] text-[#203b28]' : selected ? 'border-[#a45d46] bg-[#fbefeb] text-[#633b30]' : 'border-[#e3e8e5] bg-white text-[#777f78]';
+                    return <button key={choice} type="button" aria-pressed={selected} disabled={quizAnswer !== null} onClick={() => setQuizAnswer(index)} className={`w-full cursor-pointer rounded-lg border px-4 py-3 text-left text-sm transition-colors hover:border-[#829783] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#142b22] disabled:cursor-default ${resultStyle || 'border-[#e3e8e5] bg-white text-[#26362b]'}`}>{choice}</button>;
+                  })}
+                </div>
+                {quizAnswer !== null && <p className="mt-4 text-sm leading-relaxed text-[#46564a]" aria-live="polite">{quizAnswer === QUIZ_QUESTIONS[quizIndex].answer ? 'Benar. ' : 'Belum tepat. '}{QUIZ_QUESTIONS[quizIndex].explanation}</p>}
+                <button type="button" onClick={advanceQuiz} disabled={quizAnswer === null} className="mt-5 cursor-pointer rounded-md bg-[#142b22] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#204434] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#142b22] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-45">{quizIndex === QUIZ_QUESTIONS.length - 1 ? 'Lihat skor' : 'Pertanyaan berikutnya'}</button>
+              </div>
+            )}
+          </div>
+        </section>
+
+        <section id="sumber" className="border-t border-[#e3e8e5] bg-[#fafbf9] px-6 py-16">
+          <div className="mx-auto max-w-5xl">
+            <p className="text-xs font-semibold uppercase tracking-wide text-[#204434]">Transparansi data</p>
+            <h2 className="mt-2 text-2xl font-bold text-[#18251e]">Sumber dan catatan</h2>
+            <ul className="mt-5 space-y-3 text-sm leading-relaxed text-[#46564a]">
+              <li>Luas wilayah pulau: Kanwil Badan Pertanahan Nasional Provinsi NTB (2017), sebagaimana dirujuk dalam bahan PAPISTIS. Angka pada halaman ini mengikuti rujukan tersebut.</li>
+              <li>Penduduk 2025: <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://ntb.bps.go.id/id/publication/2023/07/14/f5deb488833b01bd89ba7e27/proyeksi-penduduk-kabupaten-kota-provinsi-nusa-tenggara-barat-2020-2035-hasil-sensus-penduduk-2020.html" target="_blank" rel="noreferrer">Proyeksi Penduduk Kabupaten/Kota NTB 2020–2035 hasil SP2020, BPS Provinsi NTB</a>.</li>
+              <li>Rinjani-Lombok UNESCO Global Geopark: <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://www.unesco.org/en/iggp/rinjani-lombok-unesco-global-geopark" target="_blank" rel="noreferrer">UNESCO</a>. Tambora termasuk bentang cagar biosfer Saleh-Moyo-Tambora (SAMOTA): <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://www.unesco.org/en/mab/samota" target="_blank" rel="noreferrer">UNESCO Man and the Biosphere Programme</a>. Catatan letusan 1815 merujuk <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://volcano.si.edu/volcano.cfm?vn=264040" target="_blank" rel="noreferrer">Smithsonian Global Volcanism Program</a>.</li>
+              <li>Hiu paus Teluk Saleh: <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://kkp.go.id/djpk/kedutaan-besar-prancis-kucurkan-500ribu-euro-dukung-kawasan-konservasi-berbasis-hiu-paus-sumbawa/detail.html" target="_blank" rel="noreferrer">Kementerian Kelautan dan Perikanan</a>.</li>
+              <li>Motto daerah (nama asli): <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://satu-data.mataramkota.go.id/dataset/7138ba1c-5408-433d-bffb-f85b72b582ba/resource/1a98d079-4ccf-4539-ae51-110f4df28594/download/profile-kelurahan-kebun-sari-2021.pdf" target="_blank" rel="noreferrer">Mataram</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://lombokbaratkab.go.id/dharma-shanti-saka-1937-di-lobar/" target="_blank" rel="noreferrer">Lombok Barat</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://www.lomboktengahkab.go.id/halaman/lambang-daerah" target="_blank" rel="noreferrer">Lombok Tengah</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://portal.lomboktimurkab.go.id/statis-86-makna-lambang-lombok-timur.html" target="_blank" rel="noreferrer">Lombok Timur</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://satudata.lombokutarakab.go.id/storage/publikasi/PROFIL%20PEMBANGUNAN%202023.pdf" target="_blank" rel="noreferrer">Lombok Utara</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://prokopim.sumbawabaratkab.go.id/lambang-daerah/" target="_blank" rel="noreferrer">Sumbawa Barat</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://dikes.sumbawakab.go.id/assets/konten/images/BAB1%20VISI%20MISI%20DAN%20SEJARAHfix.pdf" target="_blank" rel="noreferrer">Sumbawa</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://setda.dompukab.go.id/berita/detail/upacara-hari-jadi-ke210-sekda-bacakan-sejarah-singkat-kabupaten-dompu" target="_blank" rel="noreferrer">Dompu</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://bimakab.go.id/home3/download/laporan_kinerja_instansi_permerintah_kabupaten_bima_Lakip_tahun_2024.pdf" target="_blank" rel="noreferrer">Kabupaten Bima</a>, dan <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://portal.bimakota.go.id/web/detail-11-lambang_kota" target="_blank" rel="noreferrer">Kota Bima</a>.</li>
+            </ul>
+            <p className="mt-6 border-t border-[#e3e8e5] pt-5 text-xs leading-relaxed text-[#626964]">Nama motto dicocokkan dengan sumber pemerintah daerah di atas, termasuk “Patut Patuh Patju” untuk Lombok Barat. Arti atau terjemahannya tidak ditampilkan. Rincian lokal pada kartu daerah serta konten budaya/wisata merupakan ringkasan bahan awal dan masih perlu dicocokkan satu per satu dengan sumber resmi atau narasumber setempat, jadi belum disajikan sebagai keterangan resmi final.</p>
           </div>
         </section>
       </main>
@@ -605,9 +684,9 @@ export default function Home() {
 
       {/* 4. Ridgeline Dither Mountain Footer Landmark */}
       <RidgelineDitherFooter
-        name="NTB SATU"
+        name="1 BUMI GORA"
         brandHref="#portal"
-        tagline="Portal rujukan informasi pariwisata berkelanjutan, konservasi alam, dan warisan budaya Nusa Tenggara Barat: Pulau Lombok & Pulau Sumbawa."
+        tagline="Kenali NTB seutuhnya, dari Lombok sampai Sumbawa."
         seed={3726}
         ridges={6}
         altimeter={true}
@@ -637,7 +716,7 @@ export default function Home() {
             title: "Pulau Sumbawa",
             links: [
               { label: "Kaldera Tambora 1815", href: "#destinasi" },
-              { label: "Suaka Hiu Paus Teluk Saleh", href: "#destinasi" },
+              { label: "Hiu Paus Teluk Saleh", href: "#destinasi" },
               { label: "Savana Pulau Kenawa", href: "#destinasi" },
               { label: "Istana Kayu Dalam Loka", href: "#destinasi" },
             ],
@@ -657,7 +736,7 @@ export default function Home() {
           { icon: "youtube", href: "https://youtube.com" },
           { icon: "x", href: "https://x.com" },
         ]}
-        copyright="© 2026 NTB SATU. Harmoni Pulau Lombok & Pulau Sumbawa, Bumi Sasambo."
+        copyright="© 2026 1 BUMI GORA. Karya inovasi PAPISTIS, Dies Natalis ke-68 Politeknik Statistika STIS."
         credit={{ label: "Pesona NTB", href: "#portal" }}
       />
     </div>

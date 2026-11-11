@@ -63,29 +63,29 @@ export default function Demo(props: Partial<typeof settings>) {
           front={
             <>
               <div data-sublime-header>
-                <span data-sublime-logo>NTB SATU.</span>
+                <span data-sublime-logo>1 BUMI GORA</span>
                 <span data-sublime-category>Lombok &amp; Sumbawa • Bumi Sasambo</span>
               </div>
-              <p data-sublime-eyebrow>Bukan Hanya Lombok Ada Sumbawa Menanti</p>
-              <p data-sublime-support>Dua pulau megah, kekayaan kaldera dunia, serta keharmonisan tiga suku bersaudara: Sasak, Samawa, dan Mbojo.</p>
+              <p data-sublime-eyebrow>1 BUMI GORA</p>
+              <p data-sublime-support>Kenali NTB seutuhnya, dari Lombok sampai Sumbawa.</p>
               <span data-sublime-scroll> Scroll untuk melangkah ke dalam</span>
             </>
           }
         >
           <div data-slipstream-copy>
-            <h2>Melampaui Batas Lombok: Menjelajahi Jiwa Bumi Sasambo.</h2>
+            <h2>Karya inovasi PAPISTIS untuk Dies Natalis ke-68 Politeknik Statistika STIS</h2>
             <div data-slipstream-features>
               <div data-slipstream-feature>
                 <h3><span data-slipstream-no>01</span>Pulau Lombok (Sasak)</h3>
-                <p>Puncak Rinjani 3.726 mdpl dengan Danau Kawah Segara Anak, pesisir sirkuit Mandalika, kepulauan bebas polusi Gili Tramena, serta desa tenun songket Sade.</p>
+                <p>Mengenalkan sepuluh kabupaten dan kota serta keragaman wilayah di Pulau Lombok dan Pulau Sumbawa.</p>
               </div>
               <div data-slipstream-feature>
                 <h3><span data-slipstream-no>02</span>Pulau Sumbawa (Samawa &amp; Mbojo)</h3>
-                <p>Kaldera megah Tambora Geopark UNESCO yang letusannya mengguncang iklim bumi pada 1815, suaka ramah Hiu Paus Teluk Saleh, eksotisme Pulau Moyo, dan Istana Kayu Dalam Loka.</p>
+                <p>Menampilkan tiga kelompok budaya besar dalam bahan, yaitu Sasak, Samawa, dan Mbojo.</p>
               </div>
               <div data-slipstream-feature>
                 <h3><span data-slipstream-no>03</span>Kearifan Luhur Sasambo</h3>
-                <p>Persatuan tiga entitas budaya: Sasak di Lombok, Samawa di barat Sumbawa, dan Mbojo di Bima-Dompu, diikat tradisi gotong royong dan kesenian ketangkasan.</p>
+                <p>Proyek ini mengajak pengunjung mengenali NTB secara utuh, dari Lombok sampai Sumbawa.</p>
               </div>
             </div>
           </div>

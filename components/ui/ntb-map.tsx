@@ -103,27 +103,30 @@ export default function NtbMap() {
             if (event.key === "Escape") setSelectedId(null);
           }}
         >
-          <article aria-labelledby="ntb-region-detail-title" aria-modal="true" role="dialog" className="flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl border border-[#dce2da] bg-white shadow-[0_24px_70px_rgba(0,0,0,0.24)]">
-            <header className="flex shrink-0 items-start justify-between gap-4 border-b border-[#e8ece6] bg-[#fbfcf9] px-5 py-5 sm:px-7 sm:py-6">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#66806d]">Pulau {selected.island} · {selectedDetail.language}</p>
-                <h3 id="ntb-region-detail-title" className="mt-2 text-2xl font-bold tracking-tight text-[#18251e] sm:text-3xl">{selected.name}</h3>
-                <p className="mt-2 text-sm leading-6 text-[#5f6961]">{selectedDetail.overview}</p>
+          <article aria-labelledby="ntb-region-detail-title" aria-modal="true" role="dialog" className="relative flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-xl border border-[#e3e8e5] bg-white shadow-2xl">
+            <div className="min-h-0 overflow-y-auto overscroll-contain p-6">
+              <div className="space-y-5">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-semibold text-[#204434]">Pulau {selected.island} · {selectedDetail.language}</p>
+                    <h3 id="ntb-region-detail-title" className="mt-1 text-xl font-bold text-[#18251e] md:text-2xl">{selected.name}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-[#333d36]">{selectedDetail.overview}</p>
+                  </div>
+                  <button type="button" aria-label="Tutup detail wilayah" onClick={() => setSelectedId(null)} className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[#e3e8e5] bg-white text-[#46564a] transition hover:bg-[#edf2ec] focus-visible:ring-2 focus-visible:ring-[#142b22] focus-visible:outline-none"><X className="h-4 w-4" /></button>
+                </div>
+
+                <dl className="grid grid-cols-1 gap-3 border-t border-[#e3e8e5] pt-5 text-xs sm:grid-cols-2">
+                  <div className="rounded-lg border border-[#e3e8e5] bg-[#fafbf9] p-3"><dt className="mb-1 text-xs font-semibold text-[#142b22]">Alam &amp; wisata</dt><dd className="leading-relaxed text-[#5a625d]">{selectedDetail.attraction}</dd></div>
+                  <div className="rounded-lg border border-[#e3e8e5] bg-[#fafbf9] p-3"><dt className="mb-1 text-xs font-semibold text-[#142b22]">Budaya</dt><dd className="leading-relaxed text-[#5a625d]">{selectedDetail.culture}</dd></div>
+                  <div className="rounded-lg border border-[#e3e8e5] bg-[#fafbf9] p-3"><dt className="mb-1 text-xs font-semibold text-[#142b22]">Kuliner &amp; produk khas</dt><dd className="leading-relaxed text-[#5a625d]">{selectedDetail.localSpecialty}</dd></div>
+                  <div className="rounded-lg border border-[#e3e8e5] bg-[#fafbf9] p-3"><dt className="mb-1 text-xs font-semibold text-[#142b22]">Motto daerah</dt><dd className="leading-relaxed text-[#5a625d]">{selectedDetail.motto}</dd></div>
+                  <div className="rounded-lg border border-[#e3e8e5] bg-[#fafbf9] p-3"><dt className="mb-1 text-xs font-semibold text-[#142b22]">Tahukah kamu?</dt><dd className="leading-relaxed text-[#5a625d]">{selectedDetail.trivia}</dd></div>
+                  <div className="rounded-lg border border-[#e3e8e5] bg-[#fafbf9] p-3"><dt className="mb-1 text-xs font-semibold text-[#142b22]">Data wilayah</dt><dd className="flex flex-wrap gap-x-4 gap-y-1 leading-relaxed text-[#5a625d]"><span>Bahasa: {selectedDetail.language}</span><span>Luas: {selectedDetail.area}</span><span>Penduduk (2025): {selectedDetail.population}</span></dd></div>
+                </dl>
               </div>
-              <button type="button" aria-label="Tutup detail wilayah" onClick={() => setSelectedId(null)} className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[#dce2da] bg-white text-[#46564a] transition hover:bg-[#edf2ec]"><X className="h-4 w-4" /></button>
-            </header>
-            <div className="min-h-0 overflow-y-auto overscroll-contain">
-              <dl className="grid gap-px bg-[#e8ece6] sm:grid-cols-2 lg:grid-cols-3">
-                <div className="bg-white p-5 sm:p-6"><dt className="text-xs font-semibold uppercase tracking-wider text-[#66806d]">Alam &amp; wisata</dt><dd className="mt-2 text-sm leading-6 text-[#29352d]">{selectedDetail.attraction}</dd></div>
-                <div className="bg-white p-5 sm:p-6"><dt className="text-xs font-semibold uppercase tracking-wider text-[#66806d]">Budaya</dt><dd className="mt-2 text-sm leading-6 text-[#29352d]">{selectedDetail.culture}</dd></div>
-                <div className="bg-white p-5 sm:p-6"><dt className="text-xs font-semibold uppercase tracking-wider text-[#66806d]">Kuliner &amp; khas</dt><dd className="mt-2 text-sm leading-6 text-[#29352d]">{selectedDetail.localSpecialty}</dd></div>
-                <div className="bg-white p-5 sm:p-6"><dt className="text-xs font-semibold uppercase tracking-wider text-[#66806d]">Motto daerah</dt><dd className="mt-2 text-sm leading-6 text-[#29352d]">{selectedDetail.motto}</dd></div>
-                <div className="bg-white p-5 sm:p-6"><dt className="text-xs font-semibold uppercase tracking-wider text-[#66806d]">Tahukah kamu?</dt><dd className="mt-2 text-sm leading-6 text-[#29352d]">{selectedDetail.trivia}</dd></div>
-                <div className="bg-white p-5 sm:p-6"><dt className="text-xs font-semibold uppercase tracking-wider text-[#66806d]">Data wilayah</dt><dd className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm leading-6 text-[#29352d]"><span>Bahasa: {selectedDetail.language}</span><span>Luas: {selectedDetail.area}</span><span>Penduduk (2025): {selectedDetail.population}</span></dd></div>
-              </dl>
             </div>
-            <footer className="shrink-0 border-t border-[#e8ece6] bg-[#fbfcf9] px-5 py-3 text-right sm:px-7">
-              <button type="button" onClick={() => setSelectedId(null)} className="rounded-full bg-[#294536] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[#1f382a]">Tutup</button>
+            <footer className="flex shrink-0 items-center justify-end border-t border-[#e3e8e5] bg-[#fafbf9] p-4">
+              <button type="button" onClick={() => setSelectedId(null)} className="cursor-pointer rounded-md bg-[#142b22] px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-[#204434] focus-visible:ring-2 focus-visible:ring-[#142b22] focus-visible:outline-none">Tutup Rincian</button>
             </footer>
           </article>
         </div>

@@ -288,6 +288,9 @@ Halaman 7
 |3|Bau Nyale dikaitkan<br>dengan legenda…|Putri Mandalika / Dewi<br>Anjani / Roro<br>Jonggrang|Putri<br>Mandalika|Berkaitan dengan<br>legenda Putri<br>Mandalika di pesisir<br>Lombok Tengah.|
 |4|Perang Topat di Lingsar<br>melibatkan<br>masyarakat…|Sasak dan Bali /<br>Samawa dan Mbojo /<br>Sasak dan Samawa|Sasak dan<br>Bali|Lingsar, Lombok Barat.|
 |5|Ada berapa<br>kabupaten/kota di NTB?|Delapan / Sepuluh /<br>Duabelas|Sepuluh|Lima di Pulau Lombok<br>dan lima di Pulau<br>Sumbawa.|
+|6|Apa ibu kota Provinsi<br>Nusa Tenggara Barat?|Kota Bima / Kota<br>Mataram / Sumbawa<br>Besar|Kota Mataram|Mataram adalah ibu kota<br>Provinsi NTB.|
+|7|Pada tahun berapa<br>letusan besar Tambora<br>terjadi?|1815 / 1915 / 2015|1815|Letusan besar Tambora<br>terjadi pada April 1815.|
+|8|Berapa proyeksi jumlah<br>penduduk NTB tahun<br>2025 menurut BPS?|5.731.107 / 4.057.386 /<br>1.673.721 jiwa|5.731.107 jiwa|BPS NTB mencantumkan<br>proyeksi hasil SP2020<br>sebanyak 5.731.107 jiwa.|
 
 
 **7. Sumber dan catatan**
@@ -309,6 +312,10 @@ Halaman 7
 
 
 - Penduduk: proyeksi penduduk hasil SP2020 untuk tahun 2025.
+
+- Rincian proyeksi penduduk kabupaten/kota: [BPS Provinsi NTB, Proyeksi Penduduk 2020–2035 hasil SP2020](https://ntb.bps.go.id/id/publication/2023/07/14/f5deb488833b01bd89ba7e27/proyeksi-penduduk-kabupaten-kota-provinsi-nusa-tenggara-barat-2020-2035-hasil-sensus-penduduk-2020.html).
+
+- Letusan Tambora 1815: [Smithsonian Global Volcanism Program](https://volcano.si.edu/volcano.cfm?vn=264040).
 
 
 - Motto daerah dikumpulkan dari sumber pemda dan literatur; arti singkat adalah terjemahan
