@@ -56,7 +56,7 @@ export default function ZoomParallaxDemo() {
 
 	return (
 		<div className="min-h-screen w-full bg-[#f8faf9] text-[#18251e] border-t border-[#e3e8e5]">
-			<div className="relative flex h-[35vh] items-center justify-center">
+			<div className="relative flex h-[35vh] items-center justify-center overflow-x-clip">
 				<div
 					aria-hidden="true"
 					className={cn(
