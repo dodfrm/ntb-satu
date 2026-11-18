@@ -86,7 +86,7 @@ export default function NtbMap() {
               })}
               {!filtered.length && <li className="px-3 py-8 text-center text-sm text-[#7b867c]">Wilayah tidak ditemukan.</li>}
             </ul>
-            <p className="shrink-0 border-t border-[#edf0eb] px-5 py-3 text-[11px] leading-5 text-[#858e85]">Batas wilayah: data administrasi BPS, periode 2024. Peta bersifat informatif.</p>
+            <p className="shrink-0 border-t border-[#edf0eb] px-5 py-3 text-[11px] leading-5 text-[#858e85]">Batas wilayah: data administrasi BPS, periode 2024</p>
           </aside>
         </div>
 

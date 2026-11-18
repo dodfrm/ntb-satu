@@ -29,6 +29,7 @@ interface Destination {
   area: string;
   population: string;
   motto: string;
+  mottoMeaning: string;
   overview: string;
   nature: string[];
   culture: string;
@@ -73,6 +74,7 @@ const DESTINATIONS: Destination[] = [
     area: '61',
     population: '448.775',
     motto: 'Maju, Religius, dan Berbudaya',
+    mottoMeaning: 'Bergerak maju dengan kehidupan yang religius dan berbudaya.',
     overview: 'Ibu kota Provinsi NTB dan pusat pemerintahan di Pulau Lombok. Berbagai tradisi bertemu di kota yang ramai dan majemuk ini.',
     nature: ['Pantai Ampenan', 'Kota Tua Ampenan'],
     culture: 'Warisan budaya Sasak dan Bali, antara lain di Pura Meru dan Taman Mayura.',
@@ -86,6 +88,7 @@ const DESTINATIONS: Destination[] = [
     area: '1.054',
     population: '776.300',
     motto: 'Patut, Patuh, Patju',
+    mottoMeaning: 'Patut berarti baik dan terpuji; patuh berarti rukun dan toleran; patju berarti rajin serta giat.',
     overview: 'Wilayah di sisi barat Lombok yang berbatasan dengan Kota Mataram, dengan pesisir Senggigi dan tradisi yang mempertemukan umat berbeda agama.',
     nature: ['Pantai Senggigi'],
     culture: 'Perang Topat di Pura Lingsar melibatkan masyarakat Sasak dan Bali.',
@@ -99,6 +102,7 @@ const DESTINATIONS: Destination[] = [
     area: '1.208',
     population: '1.129.778',
     motto: 'Tatas, Tuhu, Trasna',
+    mottoMeaning: 'Cakap, tekun, dan penuh kasih.',
     overview: 'Wilayah selatan Lombok tempat desa adat dan kawasan pesisir berpadu.',
     nature: ['Pantai Kuta', 'Tanjung Aan (Mandalika)'],
     culture: 'Bau Nyale dan Desa Sade.',
@@ -112,6 +116,7 @@ const DESTINATIONS: Destination[] = [
     area: '1.606',
     population: '1.437.357',
     motto: 'Patuh Karya',
+    mottoMeaning: 'Patuh pada nilai yang diyakini dan produktif dalam berkarya.',
     overview: 'Kabupaten di timur Lombok dengan dataran tinggi Sembalun dan kampung-kampung perajin tenun.',
     nature: ['Sembalun', 'Kaki Gunung Rinjani'],
     culture: 'Tradisi Sasak seperti Peresean.',
@@ -125,6 +130,7 @@ const DESTINATIONS: Destination[] = [
     area: '810',
     population: '265.176',
     motto: 'Tioq, Tata, Tunaq',
+    mottoMeaning: 'Tumbuh, mengelola, serta menyayangi dan memelihara.',
     overview: 'Wilayah utara Lombok dengan gugusan pulau kecil di lepas pantai dan kampung adat di kaki Rinjani.',
     nature: ['Gili Trawangan', 'Gili Meno', 'Gili Air'],
     culture: 'Masjid Kuno Bayan dan tradisi Watu Telu.',
@@ -138,6 +144,7 @@ const DESTINATIONS: Destination[] = [
     area: '1.849',
     population: '158.130',
     motto: 'Pariri Lema Bariri',
+    mottoMeaning: 'Menghimpun dan memperbaiki, menata agar menjadi baik dan bermanfaat.',
     overview: 'Pintu masuk Pulau Sumbawa dari arah Lombok melalui pelabuhan Poto Tano, sekaligus wilayah pesisir penghubung kedua pulau.',
     nature: ['Poto Tano', 'Pulau Kenawa'],
     culture: 'Tradisi Sakejo dan Melala.',
@@ -151,6 +158,7 @@ const DESTINATIONS: Destination[] = [
     area: '6.644',
     population: '543.676',
     motto: 'Sabalong Samalewa',
+    mottoMeaning: 'Membangun secara seimbang dan serasi antara fisik-material dan mental-spiritual.',
     overview: 'Kabupaten dengan pusat di Sumbawa Besar dan rumah bagi budaya Samawa. Pulau Moyo berada di wilayah ini.',
     nature: ['Pulau Moyo'],
     culture: 'Barapan Kebo, Karaci, dan Istana Dalam Loka.',
@@ -164,6 +172,7 @@ const DESTINATIONS: Destination[] = [
     area: '2.322',
     population: '254.667',
     motto: 'Nggahi Rawi Pahu',
+    mottoMeaning: 'Menjaga kesesuaian antara ucapan dan perbuatan.',
     overview: 'Kabupaten di kaki Gunung Tambora dengan pantai selancar di bagian selatannya.',
     nature: ['Pantai Lakey', 'Danau Satonda'],
     culture: 'Falsafah Nggahi Rawi Pahu.',
@@ -177,6 +186,7 @@ const DESTINATIONS: Destination[] = [
     area: '4.389',
     population: '551.404',
     motto: 'Maja Labo Dahu',
+    mottoMeaning: 'Malu berbuat tercela dan takut melanggar ajaran agama.',
     overview: 'Kabupaten luas di timur Pulau Sumbawa, tanah Dou Mbojo dengan kampung adat Wawo.',
     nature: ['Gunung Tambora (sisi Bima)'],
     culture: 'Uma Lengge, lumbung tradisional Mbojo.',
@@ -190,6 +200,7 @@ const DESTINATIONS: Destination[] = [
     area: '222',
     population: '165.844',
     motto: 'Maja Labo Dahu',
+    mottoMeaning: 'Malu berbuat tercela dan takut melanggar ajaran agama.',
     overview: 'Kota di ujung timur Pulau Sumbawa dan pusat bekas Kesultanan Bima.',
     nature: ['Pantai Lawata'],
     culture: 'Asi Mbojo dan busana Rimpu.',
@@ -447,13 +458,15 @@ export default function Home() {
           </div>
 
           {/* Profil card untuk sepuluh daerah NTB */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {DESTINATIONS.map((dest) => (
-              <div key={dest.id} className="w-full h-[480px]">
+              <div key={dest.id} className="h-[480px] w-full md:w-[calc((100%_-_2rem)/2)] lg:w-[calc((100%_-_4rem)/3)]">
                 <DestinationCard
                   imageUrl={dest.image}
                   location={dest.title}
-                  stats={`${dest.island} · ${dest.area} km² · ${dest.population} jiwa (2025) · Motto: ${dest.motto}`}
+                  stats={`${dest.island} · ${dest.area} km² · ${dest.population} jiwa (2025)`}
+                  motto={dest.motto}
+                  mottoMeaning={dest.mottoMeaning}
                   href="#destinasi"
                   themeColor="150 50% 25%"
                   ctaText="Lihat ringkasan"
@@ -558,6 +571,7 @@ export default function Home() {
               <li>Rinjani-Lombok UNESCO Global Geopark: <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://www.unesco.org/en/iggp/rinjani-lombok-unesco-global-geopark" target="_blank" rel="noreferrer">UNESCO</a>. Tambora termasuk bentang cagar biosfer Saleh-Moyo-Tambora (SAMOTA): <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://www.unesco.org/en/mab/samota" target="_blank" rel="noreferrer">UNESCO Man and the Biosphere Programme</a>. Catatan letusan 1815 merujuk <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://volcano.si.edu/volcano.cfm?vn=264040" target="_blank" rel="noreferrer">Smithsonian Global Volcanism Program</a>.</li>
               <li>Hiu paus Teluk Saleh: <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://kkp.go.id/djpk/kedutaan-besar-prancis-kucurkan-500ribu-euro-dukung-kawasan-konservasi-berbasis-hiu-paus-sumbawa/detail.html" target="_blank" rel="noreferrer">Kementerian Kelautan dan Perikanan</a>.</li>
               <li>Motto daerah (nama asli): <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://satu-data.mataramkota.go.id/dataset/7138ba1c-5408-433d-bffb-f85b72b582ba/resource/1a98d079-4ccf-4539-ae51-110f4df28594/download/profile-kelurahan-kebun-sari-2021.pdf" target="_blank" rel="noreferrer">Mataram</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://lombokbaratkab.go.id/dharma-shanti-saka-1937-di-lobar/" target="_blank" rel="noreferrer">Lombok Barat</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://www.lomboktengahkab.go.id/halaman/lambang-daerah" target="_blank" rel="noreferrer">Lombok Tengah</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://portal.lomboktimurkab.go.id/statis-86-makna-lambang-lombok-timur.html" target="_blank" rel="noreferrer">Lombok Timur</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://satudata.lombokutarakab.go.id/storage/publikasi/PROFIL%20PEMBANGUNAN%202023.pdf" target="_blank" rel="noreferrer">Lombok Utara</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://prokopim.sumbawabaratkab.go.id/lambang-daerah/" target="_blank" rel="noreferrer">Sumbawa Barat</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://dikes.sumbawakab.go.id/assets/konten/images/BAB1%20VISI%20MISI%20DAN%20SEJARAHfix.pdf" target="_blank" rel="noreferrer">Sumbawa</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://setda.dompukab.go.id/berita/detail/upacara-hari-jadi-ke210-sekda-bacakan-sejarah-singkat-kabupaten-dompu" target="_blank" rel="noreferrer">Dompu</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://bimakab.go.id/home3/download/laporan_kinerja_instansi_permerintah_kabupaten_bima_Lakip_tahun_2024.pdf" target="_blank" rel="noreferrer">Kabupaten Bima</a>, dan <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://portal.bimakota.go.id/web/detail-11-lambang_kota" target="_blank" rel="noreferrer">Kota Bima</a>.</li>
+              <li>Rujukan makna motto: <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://lombokbaratkab.go.id/sekilas-lobar/Makna%20Lambang/" target="_blank" rel="noreferrer">Lombok Barat</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://satudata.lombokutarakab.go.id/storage/publikasi/PROFIL%20PEMBANGUNAN%202023.pdf" target="_blank" rel="noreferrer">Lombok Utara</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://prokopim.sumbawabaratkab.go.id/lambang-daerah/" target="_blank" rel="noreferrer">Sumbawa Barat</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://bappelitbangda.sumbawakab.go.id/assets/konten/images/BAB1%20VISI%20MISI%20DAN%20SEJARAHfix.pdf" target="_blank" rel="noreferrer">Sumbawa</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://setda.dompukab.go.id/berita/detail/asisten-i-setda-dompu--membaca-nyaring-menghidupkan-kembali-warisan-budaya" target="_blank" rel="noreferrer">Dompu</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://bimakab.go.id/home3/download/laporan_kinerja_instansi_permerintah_kabupaten_bima_Lakip_tahun_2024.pdf" target="_blank" rel="noreferrer">Kabupaten Bima</a>, dan <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://bpkad.bimakota.go.id/upload/ppid/c5fb3d4253c2a67ad08c682819d876cc_LKIP%202020.pdf" target="_blank" rel="noreferrer">Kota Bima</a>. Ringkasan makna Mataram, Lombok Tengah, dan Lombok Timur mengikuti bahan PAPISTIS dan perlu verifikasi lokal.</li>
             </ul>
           </div>
         </section>
@@ -637,11 +651,9 @@ export default function Home() {
               <div className="border-t border-[#e3e8e5] pt-4">
                 <p className="text-xs font-semibold uppercase tracking-wide text-[#52705b]">Motto daerah</p>
                 <p className="mt-1 text-sm font-semibold text-[#18251e]">{selectedDestination.motto}</p>
+                <p className="mt-3 text-xs font-semibold text-[#52705b]">Makna ringkas</p>
+                <p className="mt-1 text-sm leading-relaxed text-[#46564a]">{selectedDestination.mottoMeaning}</p>
               </div>
-
-              <p className="border-t border-[#e3e8e5] pt-4 text-xs leading-relaxed text-[#626964]">
-                Informasi pelengkap dirangkum dari bahan PAPISTIS. Rincian wisata, budaya, dan produk khas masih perlu dicocokkan dengan sumber resmi atau narasumber setempat.
-              </p>
             </div>
 
             {/* Modal Footer */}

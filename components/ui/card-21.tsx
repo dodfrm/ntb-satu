@@ -8,6 +8,8 @@ export interface DestinationCardProps extends React.HTMLAttributes<HTMLDivElemen
   location: string;
   flag?: string;
   stats: string;
+  motto?: string;
+  mottoMeaning?: string;
   href?: string;
   themeColor: string; // e.g., "150 50% 25%" for a deep green
   ctaText?: string;
@@ -22,6 +24,8 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
       location,
       flag,
       stats,
+      motto,
+      mottoMeaning,
       href = "#",
       themeColor,
       ctaText = "Informasi Rute",
@@ -73,6 +77,11 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
               {flag && <span className="text-xl ml-2 shrink-0">{flag}</span>}
             </h3>
             <p className="text-xs text-white/85 mt-2 font-medium leading-relaxed">{stats}</p>
+            {motto && mottoMeaning && (
+              <p className="mt-2 text-xs leading-relaxed text-white/90">
+                <span className="font-semibold">{motto}:</span> {mottoMeaning}
+              </p>
+            )}
 
             {/* Explore Button */}
             <div

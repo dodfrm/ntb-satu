@@ -89,7 +89,7 @@ export default function NtbVideoCarousel() {
 					role="region"
 					aria-label="Video tentang Nusa Tenggara Barat"
 					aria-roledescription="carousel"
-					className="relative mx-auto flex h-[340px] w-full items-center justify-center [perspective:1000px] sm:h-[400px]"
+					className="relative mx-auto flex h-[340px] w-full items-center justify-center overflow-x-clip [perspective:1000px] sm:h-[400px]"
 				>
 					{videos.map((video, index) => {
 						let offset = index - activeIndex;
