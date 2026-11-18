@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import CardNav, { CardNavItem } from './components/CardNav';
 import Demo from '@/components/ui/demo';
 import ZoomParallaxDemo from '@/components/ui/zoom-parallax-demo';
+import NtbVideoCarousel from '@/components/ui/ntb-video-carousel';
 import NtbMap from '@/components/ui/ntb-map';
 import RidgelineDitherFooter from '@/components/ui/ridgeline-dither-footer';
 import { DestinationCard } from '@/components/ui/card-21';
@@ -533,6 +534,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <NtbVideoCarousel />
 
         <section id="kuis" className="border-t border-[#e3e8e5] bg-white px-6 py-20">
           <div className="mx-auto max-w-3xl">
