@@ -76,16 +76,16 @@ export default function Demo(props: Partial<typeof settings>) {
             <h2>Karya inovasi PAPISTIS untuk Dies Natalis ke-68 Politeknik Statistika STIS</h2>
             <div data-slipstream-features>
               <div data-slipstream-feature>
-                <h3><span data-slipstream-no>01</span>Pulau Lombok (Sasak)</h3>
-                <p>Mengenalkan sepuluh kabupaten dan kota serta keragaman wilayah di Pulau Lombok dan Pulau Sumbawa.</p>
+                <h3><span data-slipstream-no>01</span>Lombok · Sasak</h3>
+                <p>Lima kabupaten/kota di Pulau Lombok dengan kelompok budaya Sasak.</p>
               </div>
               <div data-slipstream-feature>
-                <h3><span data-slipstream-no>02</span>Pulau Sumbawa (Samawa &amp; Mbojo)</h3>
-                <p>Menampilkan tiga kelompok budaya besar dalam bahan, yaitu Sasak, Samawa, dan Mbojo.</p>
+                <h3><span data-slipstream-no>02</span>Sumbawa · Samawa &amp; Mbojo</h3>
+                <p>Lima kabupaten/kota di Pulau Sumbawa dengan keragaman budaya Samawa dan Mbojo.</p>
               </div>
               <div data-slipstream-feature>
-                <h3><span data-slipstream-no>03</span>Kearifan Luhur Sasambo</h3>
-                <p>Proyek ini mengajak pengunjung mengenali NTB secara utuh, dari Lombok sampai Sumbawa.</p>
+                <h3><span data-slipstream-no>03</span>Dua Pulau, Satu NTB</h3>
+                <p>Kenali sepuluh kabupaten/kota sebagai satu provinsi dengan bentang wilayah dan budaya yang beragam.</p>
               </div>
             </div>
           </div>

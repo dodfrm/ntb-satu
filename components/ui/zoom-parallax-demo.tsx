@@ -25,32 +25,32 @@ export default function ZoomParallaxDemo() {
 
 	const images = [
 		{
-			src: 'https://images.unsplash.com/photo-1578469645742-46cae010e5d4?auto=format&fit=crop&w=1200&q=80',
-			alt: 'Gunung Rinjani dan Danau Segara Anak',
+			src: '/Lmbok%20barat%20w.jpeg',
+			alt: 'Foto Kabupaten Lombok Barat',
 		},
 		{
-			src: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80',
-			alt: 'Matahari terbenam di Kepulauan Gili Lombok',
+			src: '/LOmbok%20utara.jpeg',
+			alt: 'Foto Kabupaten Lombok Utara',
 		},
 		{
-			src: 'https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=1200&q=80',
-			alt: 'Tebing dan Bukit Merese di Mandalika',
+			src: '/lombok%20tengah.jpeg',
+			alt: 'Foto Kabupaten Lombok Tengah',
 		},
 		{
-			src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
-			alt: 'Pasir putih dan laut biru Pantai Tanjung Aan',
+			src: '/Lombok%20timur.jpeg',
+			alt: 'Foto Kabupaten Lombok Timur',
 		},
 		{
-			src: 'https://images.unsplash.com/photo-1518457607834-6e8d80c183c5?auto=format&fit=crop&w=1200&q=80',
-			alt: 'Air Terjun Tiu Kelep di kaki Rinjani',
+			src: '/kab%20sumbawa%20barat.jpeg',
+			alt: 'Foto Kabupaten Sumbawa Barat',
 		},
 		{
-			src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80',
-			alt: 'Savana Pulau Kenawa di Sumbawa Barat',
+			src: '/dompu%20satonda.jpeg',
+			alt: 'Foto Dompu dan Satonda',
 		},
 		{
-			src: 'https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?auto=format&fit=crop&w=1200&q=80',
-			alt: 'Senja kemilau di pesisir Nusa Tenggara Barat',
+			src: '/Kab%20Bima%20w.jpeg',
+			alt: 'Foto Kabupaten Bima',
 		},
 	];
 

@@ -379,13 +379,13 @@ export default function Home() {
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#142b22]/5 border border-[#142b22]/15 text-[#142b22] text-xs font-semibold tracking-wider uppercase">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Profil Geografis &amp; Kebudayaan Bumi Sasambo</span>
+              <span>Karya Inovasi PAPISTIS · Dies Natalis ke-68</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[#18251e]">
               1 BUMI GORA
             </h2>
             <p className="max-w-3xl mx-auto text-[#5a625d] text-base md:text-lg leading-relaxed">
-              Kenali NTB seutuhnya, dari Lombok sampai Sumbawa. Menurut Kanwil BPN NTB (2017), luas wilayahnya sekitar <strong className="font-semibold text-[#142b22]">20.165 km²</strong>, terdiri dari Lombok 4.739 km² dan Sumbawa 15.426 km². NTB mencakup sepuluh kabupaten/kota dengan keragaman budaya dan potensi yang luas. Karya inovasi Pemilihan Putra Putri Daerah Politeknik Statistika STIS untuk Dies Natalis ke-68 ini mengangkat tema “Karsa Daerah, Cipta Perubahan”.
+              <strong className="font-semibold text-[#142b22]">Kenali NTB seutuhnya, dari Lombok sampai Sumbawa.</strong> Berangkat dari tema “Karsa Daerah, Cipta Perubahan”, karya Pemilihan Putra Putri Daerah Politeknik Statistika STIS ini mengajak kita melihat NTB sebagai satu kesatuan yang tumbuh dari dua pulau, sepuluh kabupaten/kota, dan keragaman budaya. Empat ringkasan berikut memperkenalkan bentang wilayah, penduduk, kelompok budaya, dan pembagian daerah sebagai pijakan untuk mengenal NTB lebih utuh.
             </p>
           </div>
 
@@ -400,7 +400,7 @@ export default function Home() {
               </div>
               <div className="text-2xl md:text-3xl font-extrabold text-[#18251e]">20.165 km²</div>
               <p className="text-xs text-[#626964] mt-2 leading-relaxed">
-                Luas total NTB: Lombok 4.739 km² dan Sumbawa 15.426 km². Sumber: Kanwil BPN NTB, 2017.
+                Lombok seluas 4.739 km² dan Sumbawa 15.426 km². Sumber: Kanwil BPN NTB, 2017.
               </p>
             </div>
 
@@ -411,7 +411,7 @@ export default function Home() {
               </div>
               <div className="text-2xl md:text-3xl font-extrabold text-[#18251e]">5.731.107 jiwa</div>
               <p className="text-xs text-[#626964] mt-2 leading-relaxed">
-                Proyeksi penduduk hasil SP2020. Sumber: BPS Provinsi NTB.
+                Proyeksi jumlah penduduk NTB pada 2025. Sumber: BPS Provinsi NTB.
               </p>
             </div>
 
@@ -424,7 +424,7 @@ export default function Home() {
               </div>
               <div className="text-xl md:text-2xl font-bold text-[#18251e]">Sasak, Samawa, Mbojo</div>
               <p className="text-xs text-[#626964] mt-2 leading-relaxed">
-                Tiga kelompok budaya besar sebagaimana dirangkum dalam bahan.
+                Sasak, Samawa, dan Mbojo menjadi bagian dari keragaman NTB.
               </p>
             </div>
 
@@ -437,7 +437,7 @@ export default function Home() {
               </div>
               <div className="text-xl md:text-2xl font-bold text-[#18251e]">10 daerah</div>
               <p className="text-xs text-[#626964] mt-2 leading-relaxed">
-                Lima kabupaten/kota di Pulau Lombok dan lima di Pulau Sumbawa.
+                Lima daerah di Lombok dan lima di Sumbawa, dalam satu provinsi NTB.
               </p>
             </div>
           </div>
@@ -462,9 +462,6 @@ export default function Home() {
                 Destinasi Pilihan: Lombok &amp; Sumbawa
               </h2>
             </div>
-            <p className="text-[#5a625d] text-sm max-w-md">
-              Bagian pelengkap yang merangkum beberapa tempat di Lombok dan Sumbawa. Rincian destinasi dan budaya lokal masih perlu dicocokkan dengan sumber daerah.
-            </p>
           </div>
 
           {/* Destinasi Card Grid */}
@@ -579,7 +576,6 @@ export default function Home() {
               <li>Hiu paus Teluk Saleh: <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://kkp.go.id/djpk/kedutaan-besar-prancis-kucurkan-500ribu-euro-dukung-kawasan-konservasi-berbasis-hiu-paus-sumbawa/detail.html" target="_blank" rel="noreferrer">Kementerian Kelautan dan Perikanan</a>.</li>
               <li>Motto daerah (nama asli): <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://satu-data.mataramkota.go.id/dataset/7138ba1c-5408-433d-bffb-f85b72b582ba/resource/1a98d079-4ccf-4539-ae51-110f4df28594/download/profile-kelurahan-kebun-sari-2021.pdf" target="_blank" rel="noreferrer">Mataram</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://lombokbaratkab.go.id/dharma-shanti-saka-1937-di-lobar/" target="_blank" rel="noreferrer">Lombok Barat</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://www.lomboktengahkab.go.id/halaman/lambang-daerah" target="_blank" rel="noreferrer">Lombok Tengah</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://portal.lomboktimurkab.go.id/statis-86-makna-lambang-lombok-timur.html" target="_blank" rel="noreferrer">Lombok Timur</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://satudata.lombokutarakab.go.id/storage/publikasi/PROFIL%20PEMBANGUNAN%202023.pdf" target="_blank" rel="noreferrer">Lombok Utara</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://prokopim.sumbawabaratkab.go.id/lambang-daerah/" target="_blank" rel="noreferrer">Sumbawa Barat</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://dikes.sumbawakab.go.id/assets/konten/images/BAB1%20VISI%20MISI%20DAN%20SEJARAHfix.pdf" target="_blank" rel="noreferrer">Sumbawa</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://setda.dompukab.go.id/berita/detail/upacara-hari-jadi-ke210-sekda-bacakan-sejarah-singkat-kabupaten-dompu" target="_blank" rel="noreferrer">Dompu</a>, <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://bimakab.go.id/home3/download/laporan_kinerja_instansi_permerintah_kabupaten_bima_Lakip_tahun_2024.pdf" target="_blank" rel="noreferrer">Kabupaten Bima</a>, dan <a className="underline decoration-[#829783] underline-offset-2 hover:text-[#142b22]" href="https://portal.bimakota.go.id/web/detail-11-lambang_kota" target="_blank" rel="noreferrer">Kota Bima</a>.</li>
             </ul>
-            <p className="mt-6 border-t border-[#e3e8e5] pt-5 text-xs leading-relaxed text-[#626964]">Nama motto dicocokkan dengan sumber pemerintah daerah di atas, termasuk “Patut Patuh Patju” untuk Lombok Barat. Arti atau terjemahannya tidak ditampilkan. Rincian lokal pada kartu daerah serta konten budaya/wisata merupakan ringkasan bahan awal dan masih perlu dicocokkan satu per satu dengan sumber resmi atau narasumber setempat, jadi belum disajikan sebagai keterangan resmi final.</p>
           </div>
         </section>
       </main>
@@ -737,7 +733,6 @@ export default function Home() {
           { icon: "x", href: "https://x.com" },
         ]}
         copyright="© 2026 1 BUMI GORA. Karya inovasi PAPISTIS, Dies Natalis ke-68 Politeknik Statistika STIS."
-        credit={{ label: "Pesona NTB", href: "#portal" }}
       />
     </div>
   );
