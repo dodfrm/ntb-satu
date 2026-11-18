@@ -324,12 +324,5 @@ Halaman 7
 bebas dan perlu dicocokkan dengan situs resmi pemda.
 
 
-- Fakta tempat, budaya, dan kuliner masih draf. Bagian yang kosong menunggu narasumber
-
-
-lokal.
-
-
-Halaman 8
 
 
