@@ -690,35 +690,7 @@ export default function Home() {
           heart: "#142b22",
           tones: ["#ffffff", "#f4f7f5", "#e2ebe5", "#b4cbbe", "#7b9f8a", "#3b6b52", "#142b22"],
         }}
-        columns={[
-          {
-            title: "Pulau Lombok",
-            links: [
-              { label: "Gunung Rinjani 3.726 mdpl", href: "#destinasi" },
-              { label: "Kawasan Mandalika", href: "#destinasi" },
-              { label: "Kepulauan Gili", href: "#destinasi" },
-              { label: "Desa Adat Sade", href: "#destinasi" },
-            ],
-          },
-          {
-            title: "Pulau Sumbawa",
-            links: [
-              { label: "Kaldera Tambora 1815", href: "#destinasi" },
-              { label: "Hiu Paus Teluk Saleh", href: "#destinasi" },
-              { label: "Savana Pulau Kenawa", href: "#destinasi" },
-              { label: "Istana Kayu Dalam Loka", href: "#destinasi" },
-            ],
-          },
-          {
-            title: "Kearifan Sasambo",
-            links: [
-              { label: "Tradisi Balap Main Jaran", href: "#budaya" },
-              { label: "Tenun Songket & Rimpu", href: "#budaya" },
-              { label: "Arsitektur Nusantara", href: "#budaya" },
-              { label: "Seni Bela Diri Ksatria", href: "#budaya" },
-            ],
-          },
-        ]}
+        columns={[]}
         socials={[
           { icon: "instagram", href: "https://instagram.com" },
           { icon: "youtube", href: "https://youtube.com" },
