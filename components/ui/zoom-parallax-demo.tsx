@@ -73,7 +73,7 @@ export default function ZoomParallaxDemo() {
 						Lanskap Alam Lombok &amp; Sumbawa
 					</h2>
 					<p className="text-sm md:text-base text-[#5a625d] mt-2 max-w-md mx-auto">
-						Gulir perlahan untuk melihat lebih dekat kemegahan alam Nusa Tenggara Barat
+						Lihat lebih dekat kemegahan alam Nusa Tenggara Barat
 					</p>
 				</div>
 			</div>

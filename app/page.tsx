@@ -12,38 +12,28 @@ import RidgelineDitherFooter from '@/components/ui/ridgeline-dither-footer';
 import { DestinationCard } from '@/components/ui/card-21';
 import {
   Mountain,
-  Waves,
   Compass,
-  Sun,
   MapPin,
   Landmark,
   Scroll,
   Flame,
   Users,
-  CheckCircle2,
   X,
-  Calendar,
-  Layers,
   Sparkles,
 } from 'lucide-react';
 
 interface Destination {
   id: string;
   title: string;
-  category: string;
-  elevation: string;
-  location: string;
-  description: string;
-  icon: React.ComponentType<{ className?: string }>;
-  badge: string;
+  island: string;
+  area: string;
+  population: string;
+  motto: string;
+  overview: string;
+  nature: string[];
+  culture: string;
+  localSpecialty: string[];
   image: string;
-  featured?: boolean;
-  highlights: string[];
-  bestTime: string;
-  accessInfo: string;
-  themeColor: string;
-  flag?: string;
-  stats?: string;
 }
 
 const navItems: CardNavItem[] = [
@@ -57,10 +47,10 @@ const navItems: CardNavItem[] = [
     ],
   },
   {
-    label: 'Destinasi Wisata',
-    description: 'Kawasan konservasi alam dan pesisir unggulan di Lombok dan Sumbawa.',
+    label: '10 Daerah NTB',
+    description: 'Kenali kabupaten dan kota di Pulau Lombok dan Sumbawa melalui ringkasan wilayahnya.',
     links: [
-      { label: 'Destinasi Unggulan', href: '#destinasi' },
+      { label: 'Profil 10 Daerah', href: '#destinasi' },
       { label: 'Galeri Panorama Alam', href: '#galeri' },
     ],
   },
@@ -77,146 +67,134 @@ const navItems: CardNavItem[] = [
 
 const DESTINATIONS: Destination[] = [
   {
-    id: 'rinjani',
-    title: 'Taman Nasional Gunung Rinjani',
-    category: 'Kaldera Vulkanik & Konservasi Alam',
-    elevation: '3.726 mdpl (Lombok)',
-    location: 'Lombok Utara, Lombok Timur, & Lombok Tengah',
-    description:
-      'Gunung Rinjani dan kawasan sekitarnya termasuk dalam Rinjani-Lombok UNESCO Global Geopark.',
-    icon: Mountain,
-    badge: 'UNESCO Global Geopark',
-    image:
-      'https://images.unsplash.com/photo-1578469645742-46cae010e5d4?auto=format&fit=crop&w=1200&q=80',
-    featured: true,
-    highlights: [
-      'Danau Kawah Segara Anak & Gunung Baru Jari',
-      'Jalur Savana Sembalun & Rimba Senaru',
-      'Mata Air Panas Alami Aik Kalak',
-      'Kawasan Konservasi Flora & Fauna Khas Wallacea',
-    ],
-    bestTime: 'April hingga November (Musim Kemarau)',
-    accessInfo: 'Melalui Pintu Registrasi Resmi e-Rinjani (Sembalun, Senaru, Torean, Aik Berik).',
-    themeColor: '154 50% 25%',
-    flag: '🌋',
-    stats: '3.726 mdpl • Geopark Lombok',
+    id: 'kota-mataram',
+    title: 'Kota Mataram',
+    island: 'Pulau Lombok',
+    area: '61',
+    population: '448.775',
+    motto: 'Maju, Religius, dan Berbudaya',
+    overview: 'Ibu kota Provinsi NTB dan pusat pemerintahan di Pulau Lombok. Berbagai tradisi bertemu di kota yang ramai dan majemuk ini.',
+    nature: ['Pantai Ampenan', 'Kota Tua Ampenan'],
+    culture: 'Warisan budaya Sasak dan Bali, antara lain di Pura Meru dan Taman Mayura.',
+    localSpecialty: ['Sate Rembiga', 'Ayam Taliwang'],
+    image: '/Kota%20mataram%20w.jpeg',
   },
   {
-    id: 'tambora',
-    title: 'Taman Nasional Gunung Tambora',
-    category: 'Kaldera Raksasa & Jejak Sejarah Dunia',
-    elevation: '2.850 mdpl (Sumbawa)',
-    location: 'Kabupaten Dompu & Kabupaten Bima, Pulau Sumbawa',
-    description:
-      'Gunung Tambora berada dalam bentang kawasan Saleh-Moyo-Tambora (SAMOTA), yang ditetapkan UNESCO sebagai cagar biosfer. Letusan besarnya terjadi pada 1815.',
-    icon: Mountain,
-    badge: 'Cagar Biosfer SAMOTA',
-    image:
-      'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80',
-    featured: true,
-    highlights: [
-      'Kaldera Raksasa 7 Km Bekas Letusan Tahun 1815',
-      'Padang Savana Luas Doro Ncanga di Kaki Gunung',
-      'Habitat Satwa Kuda Liar & Rusa Timor',
-      'Jalur Pendakian Savana Pancasila & Doro Ncanga',
-    ],
-    bestTime: 'Mei hingga Oktober',
-    accessInfo: 'Melalui Pos Registrasi Pancasila atau Doro Ncanga, Dompu, Sumbawa.',
-    themeColor: '160 55% 20%',
-    flag: '🐎',
-    stats: 'Kawasan SAMOTA • Letusan 1815',
+    id: 'lombok-barat',
+    title: 'Lombok Barat',
+    island: 'Pulau Lombok',
+    area: '1.054',
+    population: '776.300',
+    motto: 'Patut, Patuh, Patju',
+    overview: 'Wilayah di sisi barat Lombok yang berbatasan dengan Kota Mataram, dengan pesisir Senggigi dan tradisi yang mempertemukan umat berbeda agama.',
+    nature: ['Pantai Senggigi'],
+    culture: 'Perang Topat di Pura Lingsar melibatkan masyarakat Sasak dan Bali.',
+    localSpecialty: ['Gerabah Banyumulek', 'Sate Bulayak'],
+    image: '/Lmbok%20barat%20w.jpeg',
   },
   {
-    id: 'teluk-saleh',
-    title: 'Teluk Saleh & Hiu Paus',
-    category: 'Habitat hiu paus & konservasi bahari',
-    elevation: 'Perairan Teluk Saleh',
-    location: 'Kabupaten Sumbawa, Pulau Sumbawa',
-    description:
-      'Teluk Saleh merupakan salah satu lokasi agregasi hiu paus yang menjadi fokus upaya konservasi dan pengelolaan habitat.',
-    icon: Waves,
-    badge: 'Konservasi Bahari Sumbawa',
-    image:
-      'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80',
-    highlights: [
-      'Interaksi Konservasi Hiu Paus di Bagan Tradisional',
-      'Gugusan Terumbu Karang Sehat Teluk Saleh',
-      'Pemberdayaan Nelayan Lokal Berbasis Ekowisata',
-    ],
-    bestTime: 'Sepanjang tahun, terbaik saat fajar (05.30 - 08.00 WITA)',
-    accessInfo: 'Akses perahu nelayan dari Labuhan Jering atau Desa Tarano, Sumbawa.',
-    themeColor: '175 60% 22%',
-    flag: '🦈',
-    stats: 'Habitat hiu paus • Teluk Saleh',
+    id: 'lombok-tengah',
+    title: 'Lombok Tengah',
+    island: 'Pulau Lombok',
+    area: '1.208',
+    population: '1.129.778',
+    motto: 'Tatas, Tuhu, Trasna',
+    overview: 'Wilayah selatan Lombok tempat desa adat dan kawasan pesisir berpadu.',
+    nature: ['Pantai Kuta', 'Tanjung Aan (Mandalika)'],
+    culture: 'Bau Nyale dan Desa Sade.',
+    localSpecialty: ['Tenun songket Sukarara', 'Nasi Balap Puyung'],
+    image: '/lombok%20tengah.jpeg',
   },
   {
-    id: 'mandalika',
-    title: 'Kawasan Wisata Mandalika & Bukit Merese',
-    category: 'Pesisir Samudra & Olahraga Dunia',
-    elevation: 'Pesisir Selatan Lombok',
-    location: 'Lombok Tengah',
-    description:
-      'Bentang perbukitan hijau Bukit Merese yang memeluk teluk biru toska, Pantai Tanjung Aan berpasir butiran merica unik, serta sirkuit balap internasional Pertamina Mandalika.',
-    icon: Compass,
-    badge: 'Destinasi Super Prioritas',
-    image:
-      'https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=800&q=80',
-    highlights: [
-      'Panorama Sunset dari Puncak Bukit Merese',
-      'Keunikan Tekstur Pasir Putih Bulat Tanjung Aan',
-      'Sirkuit Internasional Pertamina Mandalika',
-    ],
-    bestTime: 'Sepanjang tahun, ideal saat sore hari menjelang senja',
-    accessInfo: '25 menit perjalanan darat dari Bandara Internasional Lombok (BIL).',
-    themeColor: '165 50% 24%',
-    flag: '🏎️',
-    stats: 'Pesisir Samudra • Sirkuit Mandalika',
+    id: 'lombok-timur',
+    title: 'Lombok Timur',
+    island: 'Pulau Lombok',
+    area: '1.606',
+    population: '1.437.357',
+    motto: 'Patuh Karya',
+    overview: 'Kabupaten di timur Lombok dengan dataran tinggi Sembalun dan kampung-kampung perajin tenun.',
+    nature: ['Sembalun', 'Kaki Gunung Rinjani'],
+    culture: 'Tradisi Sasak seperti Peresean.',
+    localSpecialty: ['Tenun Pringgasela', 'Ayam rarang'],
+    image: '/Lombok%20timur.jpeg',
   },
   {
-    id: 'dalam-loka',
-    title: 'Istana Dalam Loka & Budaya Samawa',
-    category: 'Warisan Arsitektur Kayu Nusantara',
-    elevation: 'Pusat Sejarah Kesultanan Sumbawa',
-    location: 'Kota Sumbawa Besar, Pulau Sumbawa',
-    description:
-      'Istana kayu kembar terbesar di Nusantara yang dibangun pada tahun 1885 tanpa paku besi, bertumpu pada 99 tiang kokoh yang melambangkan Asmaul Husna. Simbol kegemilangan Kesultanan Sumbawa.',
-    icon: Landmark,
-    badge: 'Cagar Budaya Nasional',
-    image:
-      'https://images.unsplash.com/photo-1590059390046-67a731bfa8a9?auto=format&fit=crop&w=800&q=80',
-    highlights: [
-      'Konstruksi Pasak Kayu Tradisional Tanpa Paku Besi',
-      'Filosofi 99 Tiang Penyangga Asmaul Husna',
-      'Museum Sejarah & Benda Pusaka Kesultanan Samawa',
-    ],
-    bestTime: 'Buka setiap hari kerja dan akhir pekan, pagi hingga sore',
-    accessInfo: '10 menit dari Bandara Sultan Muhammad Kaharuddin III, Sumbawa Besar.',
-    themeColor: '150 45% 20%',
-    flag: '👑',
-    stats: 'Arsitektur Kayu 99 Tiang • Sejarah Samawa',
+    id: 'lombok-utara',
+    title: 'Lombok Utara',
+    island: 'Pulau Lombok',
+    area: '810',
+    population: '265.176',
+    motto: 'Tioq, Tata, Tunaq',
+    overview: 'Wilayah utara Lombok dengan gugusan pulau kecil di lepas pantai dan kampung adat di kaki Rinjani.',
+    nature: ['Gili Trawangan', 'Gili Meno', 'Gili Air'],
+    culture: 'Masjid Kuno Bayan dan tradisi Watu Telu.',
+    localSpecialty: ['Sate Tanjung'],
+    image: '/LOmbok%20utara.jpeg',
   },
   {
-    id: 'kenawa',
-    title: 'Pulau Kenawa & Selat Alas',
-    category: 'Savana Pulau Karang & Wisata Berkelanjutan',
-    elevation: 'Perairan Selat Alas (Sumbawa Barat)',
-    location: 'Poto Tano, Kabupaten Sumbawa Barat',
-    description:
-      'Pulau tak berpenghuni di Selat Alas yang memisahkan Pulau Lombok dan Sumbawa. Memiliki bukit tunggal dengan hamparan savana alami berlatar panorama Gunung Rinjani dari kejauhan.',
-    icon: Sun,
-    badge: 'Pesona Pesisir Sumbawa Barat',
-    image:
-      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
-    highlights: [
-      'Padang Savana Alami Berlatar Selat Alas & Rinjani',
-      'Spot Kemah Mandiri di Bawah Gugusan Galaksi Bima Sakti',
-      'Terumbu Karang Dangkal untuk Snorkeling Ramah Pemula',
-    ],
-    bestTime: 'Mei hingga Oktober',
-    accessInfo: 'Penyeberangan 20 menit perahu nelayan dari Pelabuhan Poto Tano, Sumbawa Barat.',
-    themeColor: '155 40% 22%',
-    flag: '🏝️',
-    stats: 'Savana Selat Alas • Berkemah Bintang',
+    id: 'sumbawa-barat',
+    title: 'Sumbawa Barat',
+    island: 'Pulau Sumbawa',
+    area: '1.849',
+    population: '158.130',
+    motto: 'Pariri Lema Bariri',
+    overview: 'Pintu masuk Pulau Sumbawa dari arah Lombok melalui pelabuhan Poto Tano, sekaligus wilayah pesisir penghubung kedua pulau.',
+    nature: ['Poto Tano', 'Pulau Kenawa'],
+    culture: 'Tradisi Sakejo dan Melala.',
+    localSpecialty: ['Singang', 'Gecok'],
+    image: '/kab%20sumbawa%20barat.jpeg',
+  },
+  {
+    id: 'sumbawa',
+    title: 'Sumbawa',
+    island: 'Pulau Sumbawa',
+    area: '6.644',
+    population: '543.676',
+    motto: 'Sabalong Samalewa',
+    overview: 'Kabupaten dengan pusat di Sumbawa Besar dan rumah bagi budaya Samawa. Pulau Moyo berada di wilayah ini.',
+    nature: ['Pulau Moyo'],
+    culture: 'Barapan Kebo, Karaci, dan Istana Dalam Loka.',
+    localSpecialty: ['Madu Sumbawa', 'Susu kuda liar'],
+    image: '/Sumbawa.jpeg',
+  },
+  {
+    id: 'dompu',
+    title: 'Dompu',
+    island: 'Pulau Sumbawa',
+    area: '2.322',
+    population: '254.667',
+    motto: 'Nggahi Rawi Pahu',
+    overview: 'Kabupaten di kaki Gunung Tambora dengan pantai selancar di bagian selatannya.',
+    nature: ['Pantai Lakey', 'Danau Satonda'],
+    culture: 'Falsafah Nggahi Rawi Pahu.',
+    localSpecialty: ['Oi mangge'],
+    image: '/dompu%20satonda.jpeg',
+  },
+  {
+    id: 'bima',
+    title: 'Bima',
+    island: 'Pulau Sumbawa',
+    area: '4.389',
+    population: '551.404',
+    motto: 'Maja Labo Dahu',
+    overview: 'Kabupaten luas di timur Pulau Sumbawa, tanah Dou Mbojo dengan kampung adat Wawo.',
+    nature: ['Gunung Tambora (sisi Bima)'],
+    culture: 'Uma Lengge, lumbung tradisional Mbojo.',
+    localSpecialty: ['Mangge mada', 'Soronco peke'],
+    image: '/Kab%20Bima%20w.jpeg',
+  },
+  {
+    id: 'kota-bima',
+    title: 'Kota Bima',
+    island: 'Pulau Sumbawa',
+    area: '222',
+    population: '165.844',
+    motto: 'Maja Labo Dahu',
+    overview: 'Kota di ujung timur Pulau Sumbawa dan pusat bekas Kesultanan Bima.',
+    nature: ['Pantai Lawata'],
+    culture: 'Asi Mbojo dan busana Rimpu.',
+    localSpecialty: ['Tenun Mbojo (Tembe Nggoli)', 'Kegape', 'Karawiti'],
+    image: '/Kota%20Bima%20w.jpeg',
   },
 ];
 
@@ -442,7 +420,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <p className="mt-5 text-center text-xs leading-relaxed text-[#626964]">Angka luas mengikuti bahan presentasi yang merujuk Kanwil BPN NTB (2017). Angka penduduk adalah proyeksi 2025 hasil SP2020 dari BPS.</p>
+          <p className="mt-5 text-center text-xs leading-relaxed text-[#626964]">Angka penduduk adalah proyeksi 2025 hasil SP2020 dari BPS.</p>
         </section>
 
         <NtbMap />
@@ -452,30 +430,32 @@ export default function Home() {
           <ZoomParallaxDemo />
         </section>
 
-        {/* Section 4: Destinasi Wisata Pilihan (Representasi Seimbang Lombok & Sumbawa) */}
+        {/* Profil sepuluh kabupaten/kota berdasarkan ringkasan bahan PAPISTIS */}
         <section id="destinasi" className="py-24 px-6 max-w-6xl mx-auto border-t border-[#e3e8e5] bg-white">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
               <p className="text-xs font-semibold text-[#204434] uppercase tracking-wide">
-                Eksplorasi Alam &amp; Sejarah
+                Sepuluh Kabupaten/Kota
               </p>
               <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-[#18251e] mt-1">
-                Destinasi Pilihan: Lombok &amp; Sumbawa
+                Profil Daerah di Lombok &amp; Sumbawa
               </h2>
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#5a625d]">
+                Kenali setiap daerah di Nusa Tenggara Barat
+              </p>
             </div>
           </div>
 
-          {/* Destinasi Card Grid */}
+          {/* Profil card untuk sepuluh daerah NTB */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {DESTINATIONS.map((dest) => (
               <div key={dest.id} className="w-full h-[480px]">
                 <DestinationCard
                   imageUrl={dest.image}
                   location={dest.title}
-                  flag={dest.flag}
-                  stats={dest.stats || `${dest.elevation} • ${dest.badge}`}
+                  stats={`${dest.island} · ${dest.area} km² · ${dest.population} jiwa (2025) · Motto: ${dest.motto}`}
                   href="#destinasi"
-                  themeColor={dest.themeColor}
+                  themeColor="150 50% 25%"
                   ctaText="Lihat ringkasan"
                   onCardClick={(e) => {
                     e.preventDefault();
@@ -583,7 +563,7 @@ export default function Home() {
         </section>
       </main>
 
-      {/* 3. Modal Dialog: Detail Destinasi Interaktif (Functional & Accessible) */}
+      {/* Dialog detail profil daerah */}
       {selectedDestination && (
         <div
           role="dialog"
@@ -606,65 +586,62 @@ export default function Home() {
                 type="button"
                 onClick={() => setSelectedDestination(null)}
                 className="absolute top-3 right-3 p-2 rounded-full bg-black/60 hover:bg-black text-white transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-[#142b22] focus-visible:outline-none"
-                aria-label="Tutup rincian destinasi"
+                aria-label="Tutup profil daerah"
               >
                 <X className="w-4 h-4" />
               </button>
               <span className="absolute bottom-3 left-4 px-3 py-1 rounded-md bg-white/95 text-xs font-semibold text-[#142b22] border border-black/10">
-                {selectedDestination.badge}
+                {selectedDestination.island}
               </span>
             </div>
 
             {/* Modal Content */}
             <div className="p-6 overflow-y-auto space-y-5">
               <div>
-                <p className="text-xs text-[#204434] font-semibold">
-                  {selectedDestination.category} • {selectedDestination.elevation}
-                </p>
+                <p className="text-xs text-[#204434] font-semibold">Ringkasan daerah</p>
                 <h3 id="modal-dest-title" className="text-xl md:text-2xl font-bold text-[#18251e] mt-1">
                   {selectedDestination.title}
                 </h3>
-                <p className="text-xs text-[#5a625d] mt-1 flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-[#142b22] shrink-0" />
-                  {selectedDestination.location}
-                </p>
               </div>
 
-              <p className="text-sm text-[#333d36] leading-relaxed">
-                {selectedDestination.description}
+              <p className="text-sm leading-relaxed text-[#46564a]">{selectedDestination.overview}</p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                <div className="rounded-lg border border-[#e3e8e5] bg-[#fafbf9] p-4">
+                  <p className="text-xs font-semibold text-[#52705b]">Luas wilayah</p>
+                  <p className="mt-1 font-bold text-[#18251e]">{selectedDestination.area} km²</p>
+                </div>
+                <div className="rounded-lg border border-[#e3e8e5] bg-[#fafbf9] p-4">
+                  <p className="text-xs font-semibold text-[#52705b]">Proyeksi penduduk 2025</p>
+                  <p className="mt-1 font-bold text-[#18251e]">{selectedDestination.population} jiwa</p>
+                </div>
+              </div>
+
+              <div className="grid gap-3 border-t border-[#e3e8e5] pt-4 sm:grid-cols-2">
+                <section className="rounded-lg bg-[#fafbf9] p-4">
+                  <h4 className="text-xs font-semibold uppercase tracking-wide text-[#204434]">Alam &amp; wisata</h4>
+                  <ul className="mt-2 list-disc space-y-1 pl-4 text-sm leading-relaxed text-[#46564a]">
+                    {selectedDestination.nature.map((item) => <li key={item}>{item}</li>)}
+                  </ul>
+                </section>
+                <section className="rounded-lg bg-[#fafbf9] p-4">
+                  <h4 className="text-xs font-semibold uppercase tracking-wide text-[#204434]">Budaya</h4>
+                  <p className="mt-2 text-sm leading-relaxed text-[#46564a]">{selectedDestination.culture}</p>
+                </section>
+                <section className="rounded-lg bg-[#fafbf9] p-4 sm:col-span-2">
+                  <h4 className="text-xs font-semibold uppercase tracking-wide text-[#204434]">Kuliner &amp; produk khas</h4>
+                  <p className="mt-2 text-sm leading-relaxed text-[#46564a]">{selectedDestination.localSpecialty.join(' · ')}</p>
+                </section>
+              </div>
+
+              <div className="border-t border-[#e3e8e5] pt-4">
+                <p className="text-xs font-semibold uppercase tracking-wide text-[#52705b]">Motto daerah</p>
+                <p className="mt-1 text-sm font-semibold text-[#18251e]">{selectedDestination.motto}</p>
+              </div>
+
+              <p className="border-t border-[#e3e8e5] pt-4 text-xs leading-relaxed text-[#626964]">
+                Informasi pelengkap dirangkum dari bahan PAPISTIS. Rincian wisata, budaya, dan produk khas masih perlu dicocokkan dengan sumber resmi atau narasumber setempat.
               </p>
-
-              <div className="space-y-2 pt-3 border-t border-[#e3e8e5]">
-                <h4 className="text-xs font-semibold text-[#142b22] uppercase tracking-wide">
-                  Daya Tarik &amp; Fitur Utama:
-                </h4>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#333d36]">
-                  {selectedDestination.highlights.map((h, i) => (
-                    <li key={i} className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#142b22] shrink-0" />
-                      <span>{h}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3 border-t border-[#e3e8e5] text-xs">
-                <div className="p-3 rounded-lg bg-[#fafbf9] border border-[#e3e8e5]">
-                  <div className="flex items-center gap-1.5 text-[#142b22] font-semibold mb-1">
-                    <Calendar className="w-3.5 h-3.5 shrink-0" />
-                    <span>Waktu Terbaik Kunjungan</span>
-                  </div>
-                  <p className="text-[#5a625d]">{selectedDestination.bestTime}</p>
-                </div>
-
-                <div className="p-3 rounded-lg bg-[#fafbf9] border border-[#e3e8e5]">
-                  <div className="flex items-center gap-1.5 text-[#142b22] font-semibold mb-1">
-                    <Layers className="w-3.5 h-3.5 shrink-0" />
-                    <span>Akses &amp; Lokasi</span>
-                  </div>
-                  <p className="text-[#5a625d]">{selectedDestination.accessInfo}</p>
-                </div>
-              </div>
             </div>
 
             {/* Modal Footer */}
@@ -674,7 +651,7 @@ export default function Home() {
                 onClick={() => setSelectedDestination(null)}
                 className="px-4 py-2 rounded-md bg-[#142b22] hover:bg-[#204434] text-white font-semibold text-xs transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-[#142b22] focus-visible:outline-none"
               >
-                Tutup Rincian
+                Tutup Profil
               </button>
             </div>
           </div>
