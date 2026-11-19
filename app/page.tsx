@@ -485,7 +485,6 @@ export default function Home() {
           <div className="max-w-5xl mx-auto space-y-12">
             <div className="text-center space-y-3">
               <p className="text-xs font-semibold text-[#204434] uppercase tracking-wide">
-                Konten pelengkap dari bahan awal
               </p>
               <h2 className="text-2xl md:text-4xl font-extrabold text-[#18251e]">
                 Kearifan Adat Sasak, Samawa, dan Mbojo
