@@ -489,8 +489,6 @@ export default function Home() {
               <h2 className="text-2xl md:text-4xl font-extrabold text-[#18251e]">
                 Kearifan Adat Sasak, Samawa, dan Mbojo
               </h2>
-              <p className="max-w-3xl mx-auto text-[#5a625d] text-sm md:text-base leading-relaxed">
-                Uraian budaya ini melengkapi profil utama. Rincian tradisi dan arti motto daerah masih perlu dicocokkan dengan sumber resmi pemerintah daerah atau narasumber setempat.
               </p>
             </div>
 
