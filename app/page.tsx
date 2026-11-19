@@ -488,7 +488,6 @@ export default function Home() {
               </p>
               <h2 className="text-2xl md:text-4xl font-extrabold text-[#18251e]">
                 Kearifan Adat Sasak, Samawa, dan Mbojo
-              </h2>
               </p>
             </div>
 
